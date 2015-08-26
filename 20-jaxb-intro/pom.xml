@@ -11,5 +11,11 @@
 
     <artifactId>jaxb-td1</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>fr.univ-tours.siad</groupId>
+            <artifactId>util</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -7,12 +7,15 @@
     <groupId>fr.univ-tours.siad</groupId>
     <artifactId>siad2015</artifactId>
     <version>1.0</version>
+
     <modules>
         <module>00-jsf-intro</module>
         <module>20-jaxb-intro</module>
         <module>10-ejb-intro</module>
         <module>30-jaxrs-intro</module>
+        <module>90-util</module>
     </modules>
+
     <packaging>pom</packaging>
 
     <properties>
@@ -86,9 +89,16 @@
                 <version>2.21</version>
             </dependency>
 
+            <dependency>
+                <groupId>fr.univ-tours.siad</groupId>
+                <artifactId>util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+    </dependencies>
     <build>
         <plugins>
             <plugin>
