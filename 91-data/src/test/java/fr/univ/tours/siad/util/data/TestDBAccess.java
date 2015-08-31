@@ -1,6 +1,7 @@
 package fr.univ.tours.siad.util.data;
 
 import fr.univ.tours.siad.util.data.bean.Person;
+import fr.univ.tours.siad.util.data.bean.Region;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -47,6 +48,16 @@ public class TestDBAccess {
     public void test() {
         Person person = new Person("bat", "batman");
         persist(person);
+    }
+
+    @Test
+    public void regionTest() {
+        Region region = new Region();
+        region.setInseeId("94");
+        region.setChefLieuId("12345");
+        region.setName("test");
+        region.setUpperName("TEST");
+        persist(region);
     }
 
 }
