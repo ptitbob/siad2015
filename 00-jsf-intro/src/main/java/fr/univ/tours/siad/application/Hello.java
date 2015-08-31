@@ -2,6 +2,8 @@ package fr.univ.tours.siad.application;
 
 import fr.univ.tours.siad.util.log.Traceable;
 import java.util.concurrent.ExecutorService;
+
+import fr.univ.tours.siad.util.ws.rs.Ping;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
@@ -14,7 +16,7 @@ import javax.ws.rs.container.Suspended;
  * Created by francois on 31/08/15.
  */
 @Path("test")
-public class Ping {
+public class Hello {
 
     @Inject
     Logger logger;
