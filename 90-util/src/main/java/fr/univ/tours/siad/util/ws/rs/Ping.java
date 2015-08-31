@@ -1,11 +1,7 @@
 package fr.univ.tours.siad.util.ws.rs;
 
-import fr.univ.tours.siad.util.log.Traceable;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.container.AsyncResponse;
-import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.Response;
 
 /**
@@ -15,8 +11,7 @@ public interface Ping {
 
     @GET
     @Path("ping")
-    @Traceable
-    default Response Ping(@Suspended AsyncResponse asyncResponse) {
+    default Response Ping() {
         return Response.noContent().build();
     }
 

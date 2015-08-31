@@ -91,6 +91,11 @@
                 <artifactId>util</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>fr.univ-tours.siad</groupId>
+                <artifactId>data</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.jboss.arquillian.junit</groupId>
