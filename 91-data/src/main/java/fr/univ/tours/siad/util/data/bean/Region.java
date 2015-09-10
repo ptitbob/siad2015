@@ -6,6 +6,7 @@ import javax.persistence.*;
 @SequenceGenerator(name = "region_sequence", sequenceName = "region_sequence", allocationSize = 1)
 public class Region {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "region_sequence")
+    @Column(name = "region_id")
     private Long id;
 
     @Column(length = 2)
