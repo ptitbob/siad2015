@@ -4,7 +4,14 @@ import javax.persistence.*;
 
 @Entity
 @SequenceGenerator(name = "region_sequence", sequenceName = "region_sequence", allocationSize = 1)
+@NamedQueries({
+        @NamedQuery(name = Region.FIND_ALL, query = "select r from Region r")
+        , @NamedQuery(name = Region.COUNT, query = "select count(r) from Region r")
+})
 public class Region {
+    public static final String FIND_ALL = "Region.FIND_ALL";
+    public static final String COUNT = "Region.COUNT";
+
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "region_sequence")
     @Column(name = "region_id")
     private Long id;

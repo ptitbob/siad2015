@@ -8,6 +8,15 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  * Created by francois on 31/08/15.
@@ -21,6 +30,9 @@ public class DataInitializer {
     private EntityManager entityManager;
 
     @Inject
+    private RegionServices regionServices;
+
+    @Inject
     private Logger logger;
 
     @PostConstruct @Traceable
@@ -30,6 +42,17 @@ public class DataInitializer {
     }
 
     private void initializeRegion() {
+        if (regionServices.getCount() == 0) {
+            logger.info("Initialisation des donnée des région");
+            File file = new File(getClass().getClassLoader().getResource("reg2015.txt").getFile());
+            try (Scanner scanner = new Scanner(file)) {
+                while (scanner.hasNextLine()) {
+                    logger.info(scanner.nextLine());
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
+        }
     }
 }
