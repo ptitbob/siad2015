@@ -15,10 +15,12 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @SequenceGenerator(name = "district_sequence", sequenceName = "district_sequence", allocationSize = 1)
 @NamedQueries({
         @NamedQuery(name = District.FIND_ALL, query = "select d from District d")
+        , @NamedQuery(name = District.COUNT, query = "select count(d) from District d")
 })
 public class District {
 
     public static final String FIND_ALL = "District.FIND_ALL";
+    public static final String COUNT = "District.COUNT";
 
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "district_sequence")
     public Long id;
