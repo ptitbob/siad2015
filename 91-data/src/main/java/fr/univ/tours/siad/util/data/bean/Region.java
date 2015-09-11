@@ -1,6 +1,7 @@
 package fr.univ.tours.siad.util.data.bean;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @SequenceGenerator(name = "region_sequence", sequenceName = "region_sequence", allocationSize = 1)
@@ -29,6 +30,13 @@ public class Region {
     private String name;
 
     public Region() {
+    }
+
+    public Region(String... regionAsStringArray) {
+        this.setInseeId(regionAsStringArray[0]);
+        this.setChefLieuId(regionAsStringArray[1]);
+        this.setName(regionAsStringArray[4]);
+        this.setUpperName(regionAsStringArray[3]);
     }
 
     public Long getId() {
@@ -69,5 +77,28 @@ public class Region {
 
     public void setUpperName(String upperName) {
         this.upperName = upperName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Region)) return false;
+        Region region = (Region) o;
+        return Objects.equals(id, region.id) &&
+                Objects.equals(inseeId, region.inseeId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, inseeId);
+    }
+
+    @Override
+    public String toString() {
+        return "Region{" +
+                "id=" + id +
+                ", inseeId='" + inseeId + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
