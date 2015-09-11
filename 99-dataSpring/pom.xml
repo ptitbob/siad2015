@@ -10,6 +10,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dataSpring</artifactId>
+    <packaging>jar</packaging>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>fr.univ-tours.siad</groupId>
+            <artifactId>util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.univ-tours.siad</groupId>
+            <artifactId>data</artifactId>
+        </dependency>
+    </dependencies>
 </project>
