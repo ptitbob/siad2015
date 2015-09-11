@@ -3,15 +3,31 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="testPU" transaction-type="RESOURCE_LOCAL">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <!--exclude-unlisted-classes>false</exclude-unlisted-classes-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>fr.univ.tours.siad.util.data.bean.Region</class>
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-            <property name="javax.persistence.jdbc.url"    value="jdbc:h2:mem:test" />
-            <property name="javax.persistence.jdbc.user" value="sa" />
-            <property name="javax.persistence.jdbc.password" value="" />
-            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-            <property name="eclipselink.ddl-generation.output-mode" value="database" />
-        </properties>    </persistence-unit>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value = "true" />
+            <property name="format_sql" value="true" />
+            <property name="use_sql_comments" value="true"/>
+            <property name="hibernate.connection.url" value="jdbc:h2:mem:test" />
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+            <property name="hibernate.connection.username" value="sa" />
+            <property name="hibernate.connection.password" value="" />
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="postgres">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>fr.univ.tours.siad.util.data.bean.Region</class>
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value = "true" />
+            <property name="format_sql" value="true" />
+            <property name="use_sql_comments" value="true"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/siad2015db" />
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
+            <property name="hibernate.connection.username" value="siad" />
+            <property name="hibernate.connection.password" value="siad2015" />
+        </properties>
+    </persistence-unit>
 </persistence>

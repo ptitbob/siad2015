@@ -1,5 +1,6 @@
 package fr.univ.tours.siad.util;
 
+import fr.univ.tours.siad.util.data.bean.Region;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kohsuke.args4j.CmdLineException;
@@ -50,7 +51,13 @@ public class Main {
     }
 
     private void execute() {
+        initializeRegion();
+    }
 
+    private void initializeRegion() {
+        if (entityManager.createNamedQuery(Region.COUNT, Long.class).getSingleResult() == 0) {
+            LOGGER.info("Injection des régions");
+        }
     }
 
     private void intializeEntityManager() {
