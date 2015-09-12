@@ -43,8 +43,12 @@ public class District {
     public District() {
     }
 
-    public District(String... districtAsString) {
-
+    public District(String[] districtAsStringArray, Region region) {
+        this.setRegion(region);
+        this.setInseeId(districtAsStringArray[1]);
+        this.setName(districtAsStringArray[5]);
+        this.setUpperName(districtAsStringArray[4]);
+        this.setChefLieuId(districtAsStringArray[2]);
     }
 
     public String getChefLieuId() {
