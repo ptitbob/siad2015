@@ -16,11 +16,14 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @NamedQueries({
         @NamedQuery(name = District.FIND_ALL, query = "select d from District d")
         , @NamedQuery(name = District.COUNT, query = "select count(d) from District d")
+        , @NamedQuery(name = District.FIND_BY_INSEEID, query = "select d from District d where d.inseeId = :" + District.INSEEID)
 })
 public class District {
 
     public static final String FIND_ALL = "District.FIND_ALL";
     public static final String COUNT = "District.COUNT";
+    public static final String INSEEID = "inseeId";
+    public static final String FIND_BY_INSEEID = "District.FIND_BY_INSEEID";
 
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "district_sequence")
     public Long id;
