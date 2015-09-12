@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.SEQUENCE;
 
@@ -37,6 +38,9 @@ public class City {
     @Column(length = 100)
     private String name;
 
+    @ManyToOne(fetch = EAGER)
+    private CityStatus cityStatus;
+
     @Column
     private Double elevation;
 
@@ -46,7 +50,13 @@ public class City {
     public City() {
     }
 
-    public City(String[] cityAsStringArray, Region region, District district) {
+    public City(String[] cityAsStringArray, Region region, District district, CityStatus cityStatus) {
+        this.setRegion(region);
+        this.setDistrict(district);
+        this.setCityStatus(cityStatus);
+        this.setInseeId(cityAsStringArray[0]);
+        this.setName(cityAsStringArray[2]);
+        this.setElevation(Double.valueOf(cityAsStringArray[6]));
     }
 
     public District getDistrict() {
@@ -103,6 +113,14 @@ public class City {
 
     public void setZipCodeSet(Set<ZipCode> zipCodeSet) {
         this.zipCodeSet = zipCodeSet;
+    }
+
+    public CityStatus getCityStatus() {
+        return cityStatus;
+    }
+
+    public void setCityStatus(CityStatus cityStatus) {
+        this.cityStatus = cityStatus;
     }
 
     @Override
