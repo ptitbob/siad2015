@@ -43,15 +43,18 @@
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#intro">Home</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#licence">Licence</a></li>
 		<li><a href="#service">Informations</a></li>
-		<li><a href="#contact">Contact</a></li>
+		<li><a href="#project">Le projet</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Les exercices<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Example menu</a></li>
-            <li><a href="#">Example menu</a></li>
-            <li><a href="#">Example menu</a></li>
+            <li><a href="#">JSF - Intro</a></li>
+            <li><a href="#">EJB & JSF</a></li>
+            <li><a href="#">Binding XML : JAXB</a></li>
+            <li><a href="#">Webservice SOAP : JAX-WS</a></li>
+            <li><a href="#">Webservice REST : JAX-RS</a></li>
+            <li><a href="#">Webservice REST côté serveur & client</a></li>
           </ul>
         </li>
       </ul>
@@ -77,78 +80,32 @@
 	<!-- /Section: intro -->
 
 	<!-- Section: about -->
-    <section id="about" class="home-section text-center">
+    <section id="licence" class="home-section text-center">
 		<div class="heading-about">
 			<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 					<div class="section-heading">
-					<h2>About us</h2>
+					<h2>Licence</h2>
 					<i class="fa fa-2x fa-angle-down"></i>
 
-					</div>
-					</div>
 				</div>
 			</div>
 			</div>
 		</div>
 		<div class="container">
-
-		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
-			</div>
-		</div>
-        <div class="row">
-            <div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.2s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Anna Hanaceck</h5>
-                        <p class="subtitle">Pixel Crafter</p>
-                        <div class="avatar"><img src="img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
-                    </div>
+        </div>
+                <div class="service-icon">
+                    <i class="fa fa-creative-commons" style="font-size: 50px"></i>
                 </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.5s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Maura Daniels</h5>
-                        <p class="subtitle">Ruby on Rails</p>
-                        <div class="avatar"><img src="img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
-
-                    </div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.8s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Jack Briane</h5>
-                        <p class="subtitle">jQuery Ninja</p>
-                        <div class="avatar"><img src="img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
-
-                    </div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="1s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Tom Petterson</h5>
-                        <p class="subtitle">Typographer</p>
-                        <div class="avatar"><img src="img/team/4.jpg" alt="" class="img-responsive img-circle" /></div>
-
-                    </div>
-                </div>
-				</div>
-            </div>
-        </div>		
+        <p>
+            <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">siad2015</span> de <a xmlns:cc="http://creativecommons.org/ns#" href="www.shipstone.org" property="cc:attributionName" rel="cc:attributionURL">François Robert</a> est mis à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.<br />Fondé(e) sur une œuvre à <a xmlns:dct="http://purl.org/dc/terms/" href="http://www.shipstone.org/siad/m2" rel="dct:source">www.shipstone.org/siad/m2</a>
+        </p>
+        <p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+        </p>
+        </div>
 		</div>
 	</section>
 	<!-- /Section: about -->
@@ -179,7 +136,7 @@
 			</div>
 		</div>
         <div class="row">
-            <div class="col-sm-3 col-md-3">
+            <div class="col-sm-4 col-md-4">
 				<div class="wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
@@ -187,12 +144,13 @@
 					</div>
 					<div class="service-desc">
 						<h5>Repository de source</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+						<p>Les sources sont disponible sur github (<a href="https://github.com/ptitbob/siad2015">github.com/ptitbob/siad2015</a>)</p>
+                        <p>Elles seront misent à jour avant chaque cours, et les corrigé d'exercices disponible dans les jours qui suivent le cours.</p>
 					</div>
                 </div>
 				</div>
             </div>
-			<div class="col-sm-3 col-md-3">
+			<div class="col-sm-4 col-md-4">
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
@@ -200,12 +158,14 @@
 					</div>
 					<div class="service-desc">
 						<h5>Les cours</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+						<p>Vous pouvez télécharger les cours ici : <a href="http://www.shipstone.org/siad/m2/cours/">siad2015M2-JavaEE-WebServices</a>.</p>
+                        <p>Ils seront disponible quelques jours avant le premier cours</p>
+
 					</div>
                 </div>
 				</div>
             </div>
-			<div class="col-sm-3 col-md-3">
+			<div class="col-sm-4 col-md-4">
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
@@ -213,11 +173,13 @@
 					</div>
 					<div class="service-desc">
 						<h5>Machine virtuelle</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+						<p>Afin d'éviter toutes installations qui ne pourrait être identique pour tout le monde, je vous propose une machine virtuelle sur laquelle vous aurez à disposition tout ce dont vous avez besoin.</p>
+                        <p>Rendez vous <a href="#vm">ici</a></p>
 					</div>
                 </div>
 				</div>
             </div>
+            <!--
 			<div class="col-sm-3 col-md-3">
 				<div class="wow fadeInRight" data-wow-delay="0.2s">
                 <div class="service-box">
@@ -236,15 +198,87 @@
                 </div>
 				</div>
             </div>
+            -->
         </div>		
 		</div>
 	</section>
 	<!-- /Section: services -->
-	
 
-	
+    <section id="project" class="home-section text-center">
+        <div class="heading-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow bounceInDown" data-wow-delay="0.4s">
+                            <div class="section-heading">
+                                <h2>Le projet</h2>
+                                <span class="fa-stack fa-5x">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa-graduation-cap fa-stack-1x"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p>Vous trouverez ici toutes les informations utiles pour le projet ou l'examen, ce n'est pas encore forcement fixé.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- Section: contact -->
+    <section id="vm" class="home-section text-center">
+        <div class="heading-contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow bounceInDown" data-wow-delay="0.4s">
+                            <div class="section-heading">
+                                <h2>Machine virtuelle</h2>
+                                <span class="fa-stack fa-5x">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa-desktop fa-stack-1x"></i>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p>La machine virtuelle fonctionne via <a href="https://www.virtualbox.org/">virtual box</a>.</p>
+                    <p>L'image contient une machine basé sur Ubuntu, ou sont installé différents logiciels neccessaires au cours :</p>
+                    <p><a href="https://netbeans.org/">Netbeans</a></p>
+                    <p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java 8</a></p>
+                    <p><a href="https://maven.apache.org/">Maven</a></p>
+                    <p><a href="https://git-scm.com/">git</a></p>
+                    <p><a href="http://wildfly.org/">wildfly</a></p>
+                    <p><a href="http://www.postgresql.org/">PostgresSQL</a></p>
+                    <p>etc...</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-lg-offset-5">
+                    <hr class="marginbot-50">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h5>Vous pouvez télécharger l'image <a href="http://www.shipstone.org/siad/m2/vm/siad2015-V1.0.ova">ici&nbsp;<i class="fa fa-download"></i></a>&nbsp;(4 Go).</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+	<!-- Section: contact
     <section id="contact" class="home-section text-center">
 		<div class="heading-contact">
 			<div class="container">
@@ -269,7 +303,7 @@
 			</div>
 		</div>
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-8">ds
             <div class="boxed-grey">
                 <form id="contact-form">
                 <div class="row">
@@ -346,7 +380,7 @@
 
 		</div>
 	</section>
-	<!-- /Section: contact -->
+	 /Section: contact -->
 
 	<footer>
 		<div class="container">
