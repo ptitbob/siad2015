@@ -10,8 +10,8 @@
 
     <modules>
         <module>00-jsf-intro</module>
-        <module>20-jaxb-intro</module>
         <module>10-ejb-intro</module>
+        <module>20-jaxb-intro</module>
         <module>30-jaxrs-intro</module>
         <module>90-util</module>
         <module>91-data</module>
@@ -103,6 +103,12 @@
                 <artifactId>arquillian-junit-container</artifactId>
                 <version>1.1.8.Final</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.3.2</version>
             </dependency>
 
         </dependencies>
