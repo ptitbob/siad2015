@@ -116,7 +116,7 @@ public class Person implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getFirstname(), getSurname(), getBirth());
+        return Objects.hash(getFirstname(), getSurname());
     }
 
     @Override
