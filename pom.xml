@@ -10,6 +10,7 @@
 
     <modules>
         <module>00-jsf-intro</module>
+        <module>01-jsf-td1</module>
         <module>10-ejb-intro</module>
         <module>20-jaxb-intro</module>
         <module>30-jaxrs-intro</module>
