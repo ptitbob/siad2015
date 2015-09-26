@@ -10,14 +10,23 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>JSF - TD1</title>
+    <h:outputStylesheet name="grid/grid.css" library="primefaces" />
 </h:head>
 
 <h:body>
-    A vous de jouer !
+    <h3 style="margin-top: 0"><p:outputLabel value="TD 1 - JSF"/></h3>
+    <div class="ui-grid ui-grid-responsive">
+        <div class="ui-grid-row">
+            <p:panel header="panel" styleClass="ui-grid-col-12">
+
+            </p:panel>
+        </div>
+    </div>
 </h:body>
 
 </html>
