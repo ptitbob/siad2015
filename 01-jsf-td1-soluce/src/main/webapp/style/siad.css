@@ -1,0 +1,4 @@
+.panelNoBorder, .panelNoBorder tr, .panelNoBorder td{
+    border: hidden!important;
+    border-color: white!important;
+}

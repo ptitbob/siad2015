@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: francois
-  Date: 24/09/15
-  Time: 00:02
--->
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -15,18 +9,14 @@
 
 <h:head>
     <title>JSF - TD1</title>
-    <h:outputStylesheet name="grid/grid.css" library="primefaces" />
 </h:head>
 
 <h:body>
-    <h3 style="margin-top: 0"><p:outputLabel value="TD 1 - JSF"/></h3>
-    <div class="ui-grid ui-grid-responsive">
-        <div class="ui-grid-row">
-            <p:panel header="panel" styleClass="ui-grid-col-12">
-
-            </p:panel>
-        </div>
-    </div>
+    <h3 style="margin-top: 0"><h:outputLabel value="Gestion de personne"/></h3>
+    <h:panelGrid columns="1">
+        <h:link outcome="createPerson" value="Enregistrer une personne"/>
+        <h:link outcome="personList" value="Liste des personnes"/>
+    </h:panelGrid>
 </h:body>
 
 </html>

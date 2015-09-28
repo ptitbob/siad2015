@@ -9,7 +9,38 @@
         <navigation-case>
             <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>createPerson</from-outcome>
+            <to-view-id>/person/viewEdit.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>personList</from-outcome>
+            <to-view-id>/person/list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule> <!-- regle de navigation à partir de la page de création/edition -->
+        <from-view-id>/person/viewEdit.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/person/list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/person/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>showPerson</from-outcome>
+            <to-view-id>/person/viewEdit.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>createPerson</from-outcome>
+            <to-view-id>/person/viewEdit.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
