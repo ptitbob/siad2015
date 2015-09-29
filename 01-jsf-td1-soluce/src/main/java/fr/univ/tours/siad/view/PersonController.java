@@ -22,7 +22,7 @@ import java.util.List;
 @ConversationScoped
 public class PersonController implements Serializable {
 
-    private static final long serialVersionUID = 1269356935637101003L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Chaine servant à stocker l'identifiant de la personne dans la requête HTTP
@@ -32,7 +32,7 @@ public class PersonController implements Serializable {
     /**
      * Chaine servant à la navigation via les outcome
      */
-    public static final String CALL_PERSON_LIST = "list";
+    public static final String UPDATE_SUCCESS = "success";
 
     /**
      * Entité personne
@@ -72,7 +72,7 @@ public class PersonController implements Serializable {
      * Appel du callback qui est déclenché après l'instanciation du bean
      */
     @PostConstruct
-    public void initialize() {
+    public void initializePerson() {
         logger.debug("Initialisation du controller PersonController");
         HttpServletRequest request = /* recupération de la requete HTTP */
                 (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -95,25 +95,18 @@ public class PersonController implements Serializable {
     }
 
     /**
-     * Création de la personne via l'appel a l'EJB PersonService et renvoi d'un outcome pour afficher la liste
-     * @return outcome pour afficher la liste
-     */
-    public String createPerson() {
-        logger.debug("Création d'une personne : " + person);
-        personService.create(person);
-        conversation.end();
-        return CALL_PERSON_LIST;
-    }
-
-    /**
-     * Mise à jour de la personne via l'appel a l'EJB PersonService et renvoi d'un outcome pour afficher la liste
+     * Mise à jour ou création de la personne via l'appel a l'EJB PersonService et renvoi d'un outcome pour afficher la liste
      * @return outcome pour afficher la liste
      */
     public String updatePerson() {
         logger.debug("Mise à jour des données pour " + person);
-        personService.update(person);
+        if (isPersonPersisted()) {
+            personService.update(person);
+        } else {
+            personService.create(person);
+        }
         conversation.end();
-        return CALL_PERSON_LIST;
+        return UPDATE_SUCCESS;
     }
 
     public void deletePerson(Long personId) {

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+        >
+<h:head>
+    <meta content="text/html; charset=UTF-8"/>
+    <title>Web Shield - Creation</title>
+    <h:outputStylesheet library="css" name="style.css"  />
+</h:head>
+<h:body>
+    <h1>Shield - <h:outputText value="#{personController.personPersisted? 'Modification' : 'Création'}"/></h1>
+    <h:form>
+        <p:panelGrid columns="2" styleClass="no-border" columnClasses="label, value" >
+            <p:outputLabel value="Référence" rendered="#{personController.personPersisted}"/>
+            <p:inputText value="#{personController.person.reference}" rendered="#{personController.personPersisted}"/>
+            <p:outputLabel value="Prénom"/>
+            <p:inputText value="#{personController.person.surname}"/>
+            <p:outputLabel value="Nom"/>
+            <p:inputText value="#{personController.person.firstname}"/>
+        </p:panelGrid>
+        <p:commandButton value="Valider" action="#{personController.updatePerson()}" style="margin-top: 1em;"/>
+    </h:form>
+    <h:form>
+        <p:commandLink value="Retour à l'index" action="index"/>
+    </h:form>
+</h:body>
+</html>
