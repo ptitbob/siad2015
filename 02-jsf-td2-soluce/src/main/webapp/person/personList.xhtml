@@ -9,12 +9,12 @@
 <h:head>
     <meta content="text/html; charset=UTF-8"/>
     <title>Personne - List</title>
-    <h:outputStylesheet library="css" name="style.css"  />
+    <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 <h:body>
     <h1>Liste des personnes</h1>
     <h:form>
-        <p:dataTable value="#{personController.personList}" var="personItem" border="1">
+        <p:dataTable value="#{personController.personList}" var="personItem" border="1" resizableColumns="true">
             <p:column>
                 <f:facet name="header">
                     <p:outputLabel value="Id"/>
@@ -28,16 +28,20 @@
                 </p:link>
             </p:column>
             <p:column>
-                <f:facet name="header"><p:outputLabel value="Nom"/></f:facet>
+                <f:facet name="header"><p:outputLabel value="Prénom"/></f:facet>
                 <p:outputLabel value="#{personItem.surname}"/>
             </p:column>
             <p:column>
-                <f:facet name="header"><p:outputLabel value="Nom réel"/></f:facet>
-                <p:outputLabel value="#{personItem.firstname}"/>
+                <f:facet name="header"><p:outputLabel value="Nom"/></f:facet>
+                <p:outputLabel value="#{personItem.firstname}">
+                    <f:converter converterId="uppercase"/>
+                </p:outputLabel>
             </p:column>
             <p:column>
                 <f:facet name="header"><p:outputLabel value="Naissance"/></f:facet>
-                <p:outputLabel value="#{personItem.birth}"/>
+                <p:outputLabel value="#{personItem.birth}">
+                    <f:convertDateTime pattern="E dd MMMM YYYY" locale="fr"/>
+                </p:outputLabel>
             </p:column>
             <p:column>
                 <p:commandLink value="effacer" action="#{personController.deletePerson(personItem.id)}" update="@form"/>
