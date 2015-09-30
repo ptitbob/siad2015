@@ -15,3 +15,8 @@
 html, body {
     background-color: aliceblue!important;
 }
+
+label.ui-state-error {
+    background-color: transparent!important;
+    font-weight: bold;
+}
