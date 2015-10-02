@@ -1,0 +1,17 @@
+.no-border.ui-panelgrid>*>tr,
+.no-border.ui-panelgrid .ui-panelgrid-cell {
+    border: none!important;
+    background-color: transparent;
+}
+
+.label {
+    text-align: right!important;
+}
+
+.value {
+
+}
+
+html, body {
+    background-color: aliceblue!important;
+}
