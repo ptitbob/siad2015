@@ -15,8 +15,8 @@
     <h:form>
         <p:panelGrid columns="3" styleClass="no-border" columnClasses="label, value" >
             <p:outputLabel for="reference" value="Référence" rendered="#{personController.personPersisted}"/>
-            <p:inputText id="reference" value="#{personController.person.reference}" rendered="#{personController.personPersisted}" readonly="true"/>
-            <p:message for="reference"/>
+            <p:inputText id="reference" value="#{personController.person.reference}" rendered="#{personController.personPersisted}"/>
+            <p:message for="reference" rendered="#{personController.personPersisted}"/>
             <p:outputLabel for="surname" value="Prénom"/>
             <p:inputText id="surname" value="#{personController.person.surname}"/>
             <p:message for="surname"/>
