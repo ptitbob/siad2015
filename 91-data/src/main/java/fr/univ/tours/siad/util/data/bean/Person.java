@@ -13,16 +13,33 @@ import java.util.Objects;
 @NamedQueries({
         @NamedQuery(name = Person.FIND_ALL, query = "select p from Person p")
         , @NamedQuery(name = Person.FIND_BY_REFERENCE, query = "select p from Person p where p.reference = :" + Person.REFERENCE)
-        , @NamedQuery(name = Person.FIND_BY_PARTIAL_SURNAME, query = "select p from Person p where p.surname like :" + Person.PARTIAL_SURNAME)
+        , @NamedQuery(name = Person.FIND_BY_PARTIAL_SURNAME, query = "select p from Person p where p.surname like %:" + Person.PARTIAL_SURNAME)
+        , @NamedQuery(name = Person.FIND_BY_CITY, query = "select p from Person p where p.address.city.inseeId = :" + City.INSEEID)
 })
 public class Person implements Serializable {
 
     private static final long serialVersionUID = -3545547914183480156L;
+
+    /**
+     * Renvoi la liste des personnes
+     */
     public static final String FIND_ALL = "Person.FIND_ALL";
+    /**
+     * Renvoi une personne selon sa reference
+     */
     public static final String FIND_BY_REFERENCE = "Person.FIND_BY_REFERENCE";
-    public static final String REFERENCE = "reference";
+    /**
+     * Renvoi une liste de personne selon le debut du nom
+     */
     public static final String FIND_BY_PARTIAL_SURNAME = "Person.FIND_BY_PARTIAL_SURNAME";
+    /**
+     * Renvoi la liste des personnes d'une ville
+     */
+    public static final String FIND_BY_CITY = "Person.FIND_BY_CITY";
+
+    public static final String REFERENCE = "reference";
     public static final String PARTIAL_SURNAME = "partialSurname";
+    private static final String ADDRESS_FK = "ADDRESS_FK";
 
     /**
      * Identifiant
@@ -53,6 +70,10 @@ public class Person implements Serializable {
      */
     @Column(length = 7)
     private String reference;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = ADDRESS_FK, referencedColumnName = Address.ADDRESS_ID)
+    private Address address;
 
     /**
      * Constructeur

@@ -17,13 +17,38 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @NamedQueries({
         @NamedQuery(name = City.COUNT, query = "select count(c) from City c")
         , @NamedQuery(name = City.FIND_ALL, query = "select c from City c")
+        , @NamedQuery(name = City.ELEVATION_SUM_BY_DISTRICT, query = "select sum(c.elevation) from City c where c.district.inseeId = :" + District.INSEEID)
+        , @NamedQuery(name = City.FIND_BY_DISTRICT, query = "select c from City c where c.district.inseeId = :" + District.INSEEID)
+        , @NamedQuery(name = City.FIND_CITY_BY_STATUS_FOR_DISTRICT, query = "select c from City c where c.district.inseeId = :" + District.INSEEID + " and c.cityStatus.label = :" + CityStatus.CITY_LABEL)
 })
 public class City {
 
+    /**
+     * Requete renvoyant le nombre de ville
+     */
     public static final String COUNT = "City.COUNT";
+    /**
+     * Requete renvoyant toutes les villes
+     */
     public static final String FIND_ALL = "City.FIND_ALL";
+    /**
+     * Requete renvoyant la somme des élévations par département (N° INSEE)
+     */
+    public static final String ELEVATION_SUM_BY_DISTRICT = "City.ELEVATION_SUM_BY_DISTRICT";
+    /**
+     * Requete renvoyant les villes d'un département (N° INSEE)
+     */
+    public static final String FIND_BY_DISTRICT = "City.FIND_BY_DISTRICT";
+    /**
+     * Requete renvoyant la liste des ville d'un certains status pour un département (N° INSEE)
+     */
+    public static final String FIND_CITY_BY_STATUS_FOR_DISTRICT = "City.FIND_CITY_BY_STATUS_FOR_DISTRICT";
+
+    public static final String CITY_ID = "CITY_ID";
+    public static final String INSEEID = "CITY_INSEEID";
 
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "city_sequence")
+    @Column(name = CITY_ID)
     private Long id;
 
     @ManyToOne(fetch = LAZY)
