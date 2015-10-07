@@ -399,7 +399,7 @@
                 <div class="panel-footer">
                     <p style="margin-bottom: 0;">
                         <a href="https://github.com/ptitbob/siad2015/tree/master/01-jsf-td1" target="_blank">Source du
-                            TD</a>&nbsp;(<a href="https://github.com/ptitbob/siad2015/tree/master/01-jsf-td1-soluce"
+                              TD</a>&nbsp;(<a href="https://github.com/ptitbob/siad2015/tree/master/01-jsf-td1-soluce"
                                             target="_blank">Corrigés</a>).
                     </p>
                 </div>
@@ -489,6 +489,8 @@
                         (avec enregistrement des choix fait par l'utilisateur)</p>
 
                     <p>Ce TD s'appuie sur le module <code>ejb-td1</code> (11-ejb-td1).</p>
+                    <p class="nopadding">Un fois le serveur lancé, votre page d'acceuil s'affiche à cette URL : <a href="http://localhost:8080/td/" target="_blank">http://localhost:8080/td/</a></p>
+                    <p class="nopadding">Chaque partie est indépendante, vous pouvez faire la partie 2 avant la partie 1 ou dans l'ordre...</p>
 
                     <div style="text-align: left" class="nopadding">
                         <p><h5 class="tdPart">Partie 1</h5></p>
@@ -555,6 +557,7 @@
                                                             <li><span style="font-style: italic">Utiliser une méthode qui a partir de votre ville permettra de renvoyer la liste des code séparé par un espace</span></li>
                                                         </ul>
                                                     </li>
+                                                    <li>Le bean des villes : <code>fr.univ.tours.siad.util.data.bean.City</code></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -572,28 +575,60 @@
                         <p style="font-style: italic">Cette partie permettra d'enregistrer des personnes, pour vous faciliter la tache elle s'appuie sur le corrigé du TD2 JSF intégré au sources de ce TD</p>
                         <p>Le client demande que l'on puisse ajouter une adresse lors de la création d'une personne, mais seulement lors de la création.</p>
                         <ul style="text-align: left; margin-top: 1em;">
-                            <li>
+                            <li>Modifier la page <code>personView</code>
                                 <ul>
-                                    <li>Champ nom
+                                    <li>En mode consultation/modification
                                         <ul>
-                                            <li>Le rendre obligatoire</li>
-                                            <li>La première lettre <span
-                                                    style="font-weight: bold; text-decoration-style: underline">doit</span>
-                                                être en majuscule (regexp ?)
+                                            <li>Si le personne n'a pas d'adresse, un message indiquant "<span style="font-style: italic">Fiche incomplete, adresse manquante</span>" s'affiche au dessous de la date de naissance</li>
+                                            <li>Si la personne presente une adresse, afficher l'adresse complete avec un champ (non modifiable) par ligne
+                                                <ul>
+                                                    <li>Champ 1 de l'adresse</li>
+                                                    <li>Champ 2 de l'adresse</li>
+                                                    <li>La ville</li>
+                                                    <li>Le code postal</li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li>Champ date de naissance
+                                    <li>En mode création
                                         <ul>
-                                            <li>Si il est rempli
+                                            <li>Ajouter un champs de saisie de n° de département
                                                 <ul>
-                                                    <li>La date de naissance <span
-                                                            style="font-weight: bold; text-decoration-style: underline">doit</span>
-                                                        être supérieur au 01/01/1950
+                                                    <li>Attention, le controlleur devra recevoir le n° de département selon certains critères
+                                                        <ul>
+                                                            <li>Le champ est obligatoire</li>
+                                                            <li>Le champs doit être numérique</li>
+                                                            <li>l'utilisateur peut rentrer un nombre entre 1 et 999</li>
+                                                            <li>Si l'utilisateur entre un chiffre entre 1 et 9, la valeur transmise au controlleur doit être préfixé par zéro (les numéro INSEE des département font au moins 2 de long, prefixé par zéro pour les départements dont le numéro est inférieur à 10)</li>
+                                                        </ul>
                                                     </li>
-                                                    <li>La personne <span
-                                                            style="font-weight: bold; text-decoration-style: underline">doit</span>
-                                                        être majeure (age légal français)
+                                                </ul>
+                                            </li>
+                                            <li>remplacer le bouton validation, par un bouton suivant qui permettra d'afficher la page suivant : selection d'une ville (navigation)</li>
+                                            <li><span style="font-style: italic">Prenez garde à ne pas fermer la conversation dans ce cas là</span>.</li>
+                                            <li>Créer la page de selection de la ville
+                                                <ul>
+                                                    <li>Cette page affichera un tableau avec la liste des ville lié au département</li>
+                                                    <li>La selection d'une ville ouvrira la page de saisie de l'adresse
+                                                        <ul>
+                                                            <li>Lors de la selection de la ville, une adresse sera créée, lié à la personne</li>
+                                                            <li>La page affichera les 2 champs de saisie de la rue</li>
+                                                            <li>En dessous, on permettra à l'utilisateur de selectionner un code postal à l'aide de radio bouton
+                                                                <ul>
+                                                                    <li><span style="font-style: italic">Inspirez vous de la page de demonstration des <a href="http://www.primefaces.org/showcase/ui/input/oneRadio.xhtml" target="_blank">radio bouton primefaces</a></span></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>Un bouton permettra de valider la personne au complet et renverra à la page de liste
+                                                                <ul>
+                                                                    <li>Attention, le service de gestion des adresses doit être séparé du service de gestion des personnes
+                                                                        <ul>
+                                                                            <li>Il devra exposer une méthode de sauvegarde de l'adresse qui ne <span style="font-style: italic; font-weight: bold">pourra pas être appelé <span style="text-decoration: underline">en dehors d'un contexte de transaction déjà inité</span></span>.</li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>C'est à ce moment que la conversation devra être terminée</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
                                                     </li>
                                                 </ul>
                                             </li>
