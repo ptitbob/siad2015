@@ -20,6 +20,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
         , @NamedQuery(name = City.ELEVATION_SUM_BY_DISTRICT, query = "select sum(c.elevation) from City c where c.district.inseeId = :" + District.INSEEID)
         , @NamedQuery(name = City.FIND_BY_DISTRICT, query = "select c from City c where c.district.inseeId = :" + District.INSEEID)
         , @NamedQuery(name = City.FIND_CITY_BY_STATUS_FOR_DISTRICT, query = "select c from City c where c.district.inseeId = :" + District.INSEEID + " and c.cityStatus.label = :" + CityStatus.CITY_LABEL)
+        , @NamedQuery(name = City.FIND_BY_INSEE, query = "select c from City c where c.inseeId = :" + City.INSEEID)
 })
 public class City {
 
@@ -44,6 +45,11 @@ public class City {
      */
     public static final String FIND_CITY_BY_STATUS_FOR_DISTRICT = "City.FIND_CITY_BY_STATUS_FOR_DISTRICT";
 
+    /**
+     * Requete revoyant la liste des ville lié à ce numero INSEE - c'est un numero unique !
+     */
+    public static final String FIND_BY_INSEE = "City.FIND_BY_INSEE";
+    
     public static final String CITY_ID = "CITY_ID";
     public static final String INSEEID = "CITY_INSEEID";
 
