@@ -33,7 +33,6 @@ public class Person implements Serializable {
     public static final String FIND_BY_CITY = "Person.FIND_BY_CITY";
 
     public static final String REFERENCE = "reference";
-    public static final String PARTIAL_SURNAME = "partialSurname";
     private static final String ADDRESS_FK = "ADDRESS_FK";
 
     /**
@@ -118,6 +117,14 @@ public class Person implements Serializable {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
