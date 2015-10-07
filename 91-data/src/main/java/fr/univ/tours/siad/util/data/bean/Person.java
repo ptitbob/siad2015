@@ -13,7 +13,6 @@ import java.util.Objects;
 @NamedQueries({
         @NamedQuery(name = Person.FIND_ALL, query = "select p from Person p")
         , @NamedQuery(name = Person.FIND_BY_REFERENCE, query = "select p from Person p where p.reference = :" + Person.REFERENCE)
-        , @NamedQuery(name = Person.FIND_BY_PARTIAL_SURNAME, query = "select p from Person p where p.surname like %:" + Person.PARTIAL_SURNAME)
         , @NamedQuery(name = Person.FIND_BY_CITY, query = "select p from Person p where p.address.city.inseeId = :" + City.INSEEID)
 })
 public class Person implements Serializable {
@@ -28,10 +27,6 @@ public class Person implements Serializable {
      * Renvoi une personne selon sa reference
      */
     public static final String FIND_BY_REFERENCE = "Person.FIND_BY_REFERENCE";
-    /**
-     * Renvoi une liste de personne selon le debut du nom
-     */
-    public static final String FIND_BY_PARTIAL_SURNAME = "Person.FIND_BY_PARTIAL_SURNAME";
     /**
      * Renvoi la liste des personnes d'une ville
      */

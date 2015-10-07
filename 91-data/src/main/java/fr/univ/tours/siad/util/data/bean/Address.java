@@ -1,7 +1,5 @@
 package fr.univ.tours.siad.util.data.bean;
 
-import org.eclipse.persistence.annotations.FetchAttribute;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 
