@@ -23,6 +23,10 @@
             <to-view-id>/index.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>regionList</from-outcome>
+            <to-view-id>/insee/regionList.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 
     <navigation-rule>
@@ -30,6 +34,14 @@
         <navigation-case>
             <from-outcome>success</from-outcome>
             <to-view-id>/person/personList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/insee/regionList.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>region</from-outcome>
+            <to-view-id>/insee/region.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
