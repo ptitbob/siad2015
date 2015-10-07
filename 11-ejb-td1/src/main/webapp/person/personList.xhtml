@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+        >
+<h:head>
+    <meta content="text/html; charset=UTF-8"/>
+    <title>Personne - List</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h1>Liste des personnes</h1>
+    <h:form>
+        <p:dataTable value="#{personController.personList}" var="personItem" border="1" resizableColumns="true">
+            <p:column>
+                <f:facet name="header">
+                    <p:outputLabel value="Id"/>
+                </f:facet>
+                <p:outputLabel value="#{personItem.id}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header"><p:outputLabel value="Matricule"/></f:facet>
+                <p:link value="#{personItem.reference}" outcome="personView">
+                    <f:param name="personId" value="#{personItem.id}"/>
+                </p:link>
+            </p:column>
+            <p:column>
+                <f:facet name="header"><p:outputLabel value="Prénom"/></f:facet>
+                <p:outputLabel value="#{personItem.surname}"/>
+            </p:column>
+            <p:column>
+                <f:facet name="header"><p:outputLabel value="Nom"/></f:facet>
+                <p:outputLabel value="#{personItem.firstname}">
+                    <f:converter converterId="uppercase"/>
+                </p:outputLabel>
+            </p:column>
+            <p:column>
+                <f:facet name="header"><p:outputLabel value="Naissance"/></f:facet>
+                <p:outputLabel value="#{personItem.birth}">
+                    <f:convertDateTime pattern="E dd MMMM YYYY" locale="fr"/>
+                </p:outputLabel>
+            </p:column>
+            <p:column>
+                <p:commandLink value="effacer" action="#{personController.deletePerson(personItem.id)}" update="@form"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+    <h:form>
+        <p:commandLink value="Retour à l'index" action="index"/>
+    </h:form>
+</h:body>
+</html>
