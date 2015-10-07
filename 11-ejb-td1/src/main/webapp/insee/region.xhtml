@@ -12,15 +12,25 @@
     <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 <h:body>
-    <h1 style="text-align: center">Liste des Régions</h1>
-    <p:dataTable value="#{regionController.regionList}" var="region">
+    <h1 style="text-align: center">Région : <p:outputLabel value="#{regionController.region.name}"/></h1>
+    <p:panel header="Prefecture de région" rendered="#{regionController.regionMainCity != null}">
+        <h:panelGrid columns="2">
+            <p:outputLabel for="mainCityName" value="Nom : "/>
+            <p:outputLabel id="mainCityName" value="#{regionController.regionMainCity.name}"/>
+            <p:outputLabel for="mainCityElevation" value="Altitude : "/>
+            <p:outputLabel id="mainCityElevation" value="#{regionController.regionMainCity.elevation} m"/>
+            <p:outputLabel for="mainCityInsee" value="Numero INSEE : "/>
+            <p:outputLabel id="mainCityInsee" value="#{regionController.regionMainCity.inseeId}"/>
+        </h:panelGrid>
+    </p:panel>
+    <p:dataTable value="#{regionController.districtList}" var="district">
         <p:column>
             <f:facet name="header">Nom</f:facet>
-            <p:outputLabel value="#{region.name}"/>
+            <p:outputLabel value="#{district.name}"/>
         </p:column>
         <p:column>
             <f:facet name="header">N° INSEE</f:facet>
-            <p:link value="#{region.inseeId}" outcome="region">
+            <p:link value="#{district.inseeId}" outcome="region">
                 <f:param name="regionId" value="#{region.id}"/>
             </p:link>
         </p:column>

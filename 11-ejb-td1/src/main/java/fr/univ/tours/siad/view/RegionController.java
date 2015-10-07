@@ -1,8 +1,10 @@
 package fr.univ.tours.siad.view;
 
 import fr.univ.tours.siad.service.CityService;
+import fr.univ.tours.siad.service.DistrictService;
 import fr.univ.tours.siad.service.RegionService;
 import fr.univ.tours.siad.util.data.bean.City;
+import fr.univ.tours.siad.util.data.bean.District;
 import fr.univ.tours.siad.util.data.bean.Person;
 import fr.univ.tours.siad.util.data.bean.Region;
 import org.apache.logging.log4j.Logger;
@@ -34,6 +36,9 @@ public class RegionController {
     @EJB
     private CityService cityService;
 
+    @EJB
+    private DistrictService districtService;
+
     private Long regionId;
 
     private Region region;
@@ -60,6 +65,13 @@ public class RegionController {
 
     public List<Region> getRegionList() {
         return regionService.findAll();
+    }
+
+    public List<District> getDistrictList() {
+        if (region != null) {
+        return districtService.findFor(region);
+        }
+        return null;
     }
 
     public Region getRegion() {
