@@ -14,9 +14,17 @@ import static javax.persistence.FetchType.LAZY;
         , @NamedQuery(name = Region.FIND_BY_INSEEID, query = "select r from Region r where r.inseeId = :" + Region.INSEEID)
 })
 public class Region {
+
+    /**
+     * Renvoi la liste de toutes les région
+     */
     public static final String FIND_ALL = "Region.FIND_ALL";
+    /**
+     * Renvoi le nombre de région
+     */
     public static final String COUNT = "Region.COUNT";
-    public static final String INSEEID = "INSEEID";
+    
+    public static final String INSEEID = "regionInseeId";
     public static final String FIND_BY_INSEEID = "Region.FIND_BY_INSEEID";
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "region_sequence")

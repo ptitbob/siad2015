@@ -17,13 +17,28 @@ import static javax.persistence.GenerationType.SEQUENCE;
         @NamedQuery(name = District.FIND_ALL, query = "select d from District d")
         , @NamedQuery(name = District.COUNT, query = "select count(d) from District d")
         , @NamedQuery(name = District.FIND_BY_INSEEID, query = "select d from District d where d.inseeId = :" + District.INSEEID)
+        , @NamedQuery(name = District.FIND_BY_REGION, query = "select d from District d where d.region.inseeId = :" + Region.INSEEID)
 })
 public class District {
 
+    /**
+     * Renvoi la liste des département
+     */
     public static final String FIND_ALL = "District.FIND_ALL";
+    /**
+     * Renvoi le nombre des départements
+     */
     public static final String COUNT = "District.COUNT";
-    public static final String INSEEID = "inseeId";
+    /**
+     * Renvoi un département par son N° INSEE
+     */
     public static final String FIND_BY_INSEEID = "District.FIND_BY_INSEEID";
+    /**
+     * Renvoi la liste des département d'une région (par N° INSEE)
+     */
+    public static final String FIND_BY_REGION = "District.FIND_BY_REGION";
+
+    public static final String INSEEID = "districtInseeId";
 
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "district_sequence")
     public Long id;

@@ -11,6 +11,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @SequenceGenerator(name = "citystatus_sequence", sequenceName = "citystatus_sequence", allocationSize = 1)
 public class CityStatus {
 
+    public static final String CITY_LABEL = "cityLabel";
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "citystatus_sequence")
     private Long id;
 
