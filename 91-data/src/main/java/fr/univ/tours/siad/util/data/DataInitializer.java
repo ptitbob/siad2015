@@ -8,9 +8,6 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 /**
  * Created by francois on 31/08/15.
@@ -24,7 +21,7 @@ public class DataInitializer {
     private EntityManager entityManager;
 
     @Inject
-    private RegionServices regionServices;
+    private StatisticServices statisticServices;
 
     @Inject
     private Logger logger;
@@ -32,21 +29,7 @@ public class DataInitializer {
     @PostConstruct @Traceable
     public void initializeData() {
         logger.debug("----------------- Data initialisation -----------------");
-        initializeRegion();
+        logger.debug("Regions : " + statisticServices.getCount() + " presente en base.");
     }
 
-    private void initializeRegion() {
-        if (regionServices.getCount() == 0) {
-            logger.info("Initialisation des donnée des région");
-            File file = new File(getClass().getClassLoader().getResource("reg2015.txt").getFile());
-            try (Scanner scanner = new Scanner(file)) {
-                while (scanner.hasNextLine()) {
-                    logger.info(scanner.nextLine());
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
 }

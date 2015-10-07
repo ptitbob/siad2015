@@ -12,7 +12,7 @@ import java.util.Queue;
  * Created by francois on 11/09/15.
  */
 @Stateless
-public class RegionServices {
+public class StatisticServices {
 
     @Inject @SiadDatabase
     private EntityManager entityManager;
