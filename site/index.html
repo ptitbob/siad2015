@@ -55,6 +55,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="#td-jsf-td1">JSF - TD1 - Les bases</a></li>
                         <li><a href="#td-jsf-td2">JSF - TD2 - Validateur et convertisseur</a></li>
+                        <li><a href="#td-ejb-td1">EJB & JSF - TD1 - Vues, Controlleurs & services</a></li>
                         <!--
                       <li><a href="#">EJB & JSF</a></li>
                       <li><a href="#">Binding XML : JAXB</a></li>
@@ -398,7 +399,8 @@
                 <div class="panel-footer">
                     <p style="margin-bottom: 0;">
                         <a href="https://github.com/ptitbob/siad2015/tree/master/01-jsf-td1" target="_blank">Source du
-                            TD</a>&nbsp;(Les corrections seront disponible le weekend suivant le travail en cours).
+                            TD</a>&nbsp;(<a href="https://github.com/ptitbob/siad2015/tree/master/01-jsf-td1-soluce"
+                                            target="_blank">Corrigés</a>).
                     </p>
                 </div>
             </div>
@@ -464,11 +466,154 @@
                 <div class="panel-footer">
                     <p style="margin-bottom: 0;">
                         <a href="https://github.com/ptitbob/siad2015/tree/master/02-jsf-td2" target="_blank">Source du
-                            TD</a>&nbsp;(Les corrections seront disponible le weekend suivant le travail en cours).
+                            TD</a>&nbsp;(<a href="https://github.com/ptitbob/siad2015/tree/master/02-jsf-td2-soluce"
+                                            target="_blank">Corrigés</a>).
                     </p>
                 </div>
             </div>
         </div>
+
+        <div class="row" id="td-ejb-td1">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 style="margin-bottom: 5px;">EJB & JSF - TD1 - Vues, Controlleurs & services</h4>
+                </div>
+                <div class="panel-body" style="">
+                    <p class="td-paragraph">Ce TD s'articule en 2 parties, la première sera essentiellement de la
+                        consultation avec une navigation. La seconde sera une gestion de formulaire sur plusieurs pages
+                        (avec enregistrement des choix fait par l'utilisateur)</p>
+
+                    <p>Ce TD s'appuie sur le module <code>ejb-td1</code> (11-ejb-td1).</p>
+
+                    <div style="text-align: left" class="nopadding">
+                        <p><h5 class="tdPart">Partie 1</h5></p>
+                        <ul style="text-align: left">
+                            <li>Région
+                                <ul>
+                                    <li>Créer une classe de service permettant d'exposer toutes les méthodes neccessaire</li>
+                                    <li>La bean JPA des region : <code>fr.univ.tours.siad.util.data.bean.Region</code>(module <code>data</code>)
+                                        <ul>
+                                            <li>Vous trouverez les requêtes preparées</li>
+                                            <li>Pour voir comment executer une requête nommée (préparée), regardez les précedent TD au niveau des services appelés par les controlleurs ;)</li>
+                                        </ul>
+                                    </li>
+                                    <li>Créer une page affichant la liste des régions
+                                        <ul>
+                                            <li>Afficher la liste des région avec les colonne nom (non uppercasé), N° INSEE</li>
+                                            <li>un lien sur le N° INSEE permettra d'afficher la page de la région</li>
+                                            <li>Créer un lien depuis la page d'index vers cette page (cette page doit pouvoir être appelé de partout sur le site)</li>
+                                        </ul>
+                                    </li>
+                                    <li>Créer une page de détails de région
+                                        <ul>
+                                            <li>Cette page ne peut s'afficher que depuis la page de liste des régions</li>
+                                            <li>Cette page se divise en 2 parties
+                                                <ul>
+                                                    <li>Le détail
+                                                        <ul>
+                                                            <li>Afficher le nom de région en grand (libre choix à vous pour le moyen)</li>
+                                                            <li>Afficher la prefecture de région (nom, altitude (en anglais : elevation), n°INSEE)</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>La liste des départements
+                                                        <ul>
+                                                            <li>Nom du département</li>
+                                                            <li>N° INSEE</li>
+                                                            <li>Le N° INSEE doit pouvoir ouvrir le détail du département</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Département
+                                <ul>
+                                    <li>Créer une page détail</li>
+                                    <li>Créer la navigation depuis la page de détail des régions</li>
+                                    <li>Le bean du département : <code>fr.univ.tours.siad.util.data.bean.District</code></li>
+                                    <li>Cette page doit presenter 2 parties
+                                        <ul>
+                                            <li>Détail
+                                                <ul>
+                                                    <li>Afficher le nom du département, mais en moins grand que la région</li>
+                                                    <li>Afficher le nom de la prefecture et son altitude</li>
+                                                    <li>Afficher l'altitude moyenne <span style="text-decoration: underline">calculée</span> à partir des altitude des villes du départements</li>
+                                                </ul>
+                                            </li>
+                                            <li>La liste des villes
+                                                <ul>
+                                                    <li>Afficher la liste des ville</li>
+                                                    <li>Avec Nom, altitude, status, liste des code postaux
+                                                        <ul>
+                                                            <li><span style="font-style: italic">Utiliser une méthode qui a partir de votre ville permettra de renvoyer la liste des code séparé par un espace</span></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><span style="font-style: italic; font-weight: bold">Il est entendu que cela doit être un autre service, lié au département</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>Cette partie ne reclame pas de scope permanent ou semi permanent, prenez soin de ne pas
+                            saturer la mémoire de votre serveur</p>
+                        <p>Petit rappel : <span style="font-style: italic; font-weight: bold">Le code est <span style="text-decoration: underline">toujours</span> en anglais !</span></p>
+                    </div>
+                    <div style="text-align: left; margin-top: 2em;" class="nopadding">
+                        <p><h5 class="tdPart">Partie 2</h5></p>
+                        <p style="font-style: italic">Cette partie permettra d'enregistrer des personnes, pour vous faciliter la tache elle s'appuie sur le corrigé du TD2 JSF intégré au sources de ce TD</p>
+                        <p>Le client demande que l'on puisse ajouter une adresse lors de la création d'une personne, mais seulement lors de la création.</p>
+                        <ul style="text-align: left; margin-top: 1em;">
+                            <li>
+                                <ul>
+                                    <li>Champ nom
+                                        <ul>
+                                            <li>Le rendre obligatoire</li>
+                                            <li>La première lettre <span
+                                                    style="font-weight: bold; text-decoration-style: underline">doit</span>
+                                                être en majuscule (regexp ?)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Champ date de naissance
+                                        <ul>
+                                            <li>Si il est rempli
+                                                <ul>
+                                                    <li>La date de naissance <span
+                                                            style="font-weight: bold; text-decoration-style: underline">doit</span>
+                                                        être supérieur au 01/01/1950
+                                                    </li>
+                                                    <li>La personne <span
+                                                            style="font-weight: bold; text-decoration-style: underline">doit</span>
+                                                        être majeure (age légal français)
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <p style="margin-bottom: 0;">
+                        <a href="https://github.com/ptitbob/siad2015/tree/master/02-jsf-td2" target="_blank">Source du
+                            TD</a>&nbsp;(Les corrigés seront disponible le week-end suivant le TD).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </section>
 

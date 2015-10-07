@@ -793,3 +793,21 @@ Parallax
 	}
 	
 }
+
+h5.tdPart{
+    margin: 1em 0 0.25em;
+    text-transform: none;
+    font-variant: small-caps;
+    text-align: left;
+}
+
+code {
+    font-size: 90%;
+    color: #c7254e;
+    white-space: nowrap;
+    background-color: transparent;
+}
+
+.nopadding p {
+    margin-bottom: 0;
+}
