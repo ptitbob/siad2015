@@ -50,7 +50,7 @@ public class City {
      */
     public static final String FIND_BY_INSEE = "City.FIND_BY_INSEE";
     
-    public static final String CITY_ID = "CITY_ID";
+    public static final String CITY_ID = "id";
     public static final String INSEEID = "CITY_INSEEID";
 
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "city_sequence")
