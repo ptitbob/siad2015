@@ -7,6 +7,7 @@ import fr.univ.tours.siad.util.data.bean.Region;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
@@ -24,5 +25,13 @@ public class DistrictService {
 
     public District getById(Long districtId) {
         return entityManager.find(District.class, districtId);
+    }
+
+    public District getByINSEE(String inseeId) {
+        try {
+            return entityManager.createNamedQuery(District.FIND_BY_INSEEID, District.class).setParameter(District.INSEEID, inseeId).getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }

@@ -35,8 +35,27 @@
             <from-outcome>success</from-outcome>
             <to-view-id>/person/personList.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>selectcity</from-outcome>
+            <to-view-id>/person/personSelectCity.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
-    
+
+    <navigation-rule>
+        <from-view-id>/person/personSelectCity.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>fillAddress</from-outcome>
+            <to-view-id>/person/personAddress.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/person/personAddress.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/person/personList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
     <navigation-rule>
         <from-view-id>/insee/regionList.xhtml</from-view-id>
         <navigation-case>
