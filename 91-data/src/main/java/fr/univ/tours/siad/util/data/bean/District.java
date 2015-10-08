@@ -141,7 +141,6 @@ public class District {
                 "id=" + id +
                 ", inseeId='" + inseeId + '\'' +
                 ", name='" + name + '\'' +
-                ", region=" + region +
                 '}';
     }
 }

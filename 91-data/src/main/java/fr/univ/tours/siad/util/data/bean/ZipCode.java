@@ -13,7 +13,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @SequenceGenerator(name = "zipcode_sequence", sequenceName = "zipcode_sequence", allocationSize = 1)
 public class ZipCode {
 
-    public static final String ZIPCODE_ID = "ZIPCODE_ID";
+    public static final String ZIPCODE_ID = "ID";
 
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "zipcode_sequence")
     @Column(name = ZIPCODE_ID)

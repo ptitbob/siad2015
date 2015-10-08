@@ -30,8 +30,8 @@
         </p:column>
         <p:column>
             <f:facet name="header">N° INSEE</f:facet>
-            <p:link value="#{district.inseeId}" outcome="region">
-                <f:param name="regionId" value="#{region.id}"/>
+            <p:link value="#{district.inseeId}" outcome="district">
+                <f:param name="districtId" value="#{district.id}"/>
             </p:link>
         </p:column>
     </p:dataTable>

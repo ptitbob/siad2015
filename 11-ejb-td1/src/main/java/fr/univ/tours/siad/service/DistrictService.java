@@ -21,4 +21,8 @@ public class DistrictService {
     public List<District> findFor(Region region) {
         return entityManager.createNamedQuery(District.FIND_BY_REGION, District.class).setParameter(Region.INSEEID, region.getInseeId()).getResultList();
     }
+
+    public District getById(Long districtId) {
+        return entityManager.find(District.class, districtId);
+    }
 }

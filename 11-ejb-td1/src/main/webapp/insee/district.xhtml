@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+        >
+<h:head>
+    <meta content="text/html; charset=UTF-8"/>
+    <title>Personne - List</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h3 style="text-align: center">Département : <p:outputLabel value="#{districtController.district.name}"/></h3>
+    <p:panel header="Prefecture" rendered="#{districtController.districtMainCity != null}">
+        <h:panelGrid columns="2">
+            <p:outputLabel for="mainCityName" value="Nom : "/>
+            <p:outputLabel id="mainCityName" value="#{districtController.districtMainCity.name}"/>
+            <p:outputLabel for="mainCityElevation" value="Altitude : "/>
+            <p:outputLabel id="mainCityElevation" value="#{districtController.districtMainCity.elevation} m"/>
+            <p:outputLabel for="averageElevation" value="Altitude moyenne"/>
+            <p:outputLabel id="averageElevation" value="#{districtController.computeAverageElevation(districtController.district)} m"/>
+        </h:panelGrid>
+    </p:panel>
+    <p:dataTable value="#{districtController.cityList}" var="city">
+        <p:column>
+            <f:facet name="header">Nom</f:facet>
+            <p:outputLabel value="#{city.name}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">N° INSEE</f:facet>
+            <p:outputLabel value="#{city.inseeId}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">Altitude</f:facet>
+            <p:outputLabel value="#{city.elevation}"/> m
+        </p:column>
+        <p:column>
+            <f:facet name="header">Statut</f:facet>
+            <p:outputLabel value="#{city.cityStatus.label}"/>
+        </p:column>
+    </p:dataTable>
+    <h:form>
+        <p:commandLink value="Retour à l'index" action="index"/>
+    </h:form>
+</h:body>
+</html>

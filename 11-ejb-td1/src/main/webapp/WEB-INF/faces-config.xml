@@ -44,4 +44,12 @@
             <to-view-id>/insee/region.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/insee/region.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>district</from-outcome>
+            <to-view-id>/insee/district.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
