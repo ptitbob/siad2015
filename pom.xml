@@ -20,7 +20,7 @@
         <module>30-jaxrs-intro</module>
         <module>90-util</module>
         <module>91-data</module>
-        <module>99-dataSpring</module>
+        <!--module>99-dataSpring</module-->
     </modules>
 
     <packaging>pom</packaging>
