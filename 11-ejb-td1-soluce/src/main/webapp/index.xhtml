@@ -13,12 +13,13 @@
     <h:outputStylesheet library="css" name="style.css"  />
 </h:head>
 <h:body>
-    <p:panelGrid columns="2" styleClass="no-border">
+    <p:panelGrid columns="3" styleClass="no-border">
         <f:facet name="header">
-            <p:outputLabel value="Gestion personne"/>
+            <p:outputLabel value="Gestion personne &amp; INSEE"/>
         </f:facet>
         <p:link value="Créer une personne" outcome="create"/>
         <p:link value="Liste des personne" outcome="list"/>
+        <p:link value="Liste des région" outcome="regionList"/>
     </p:panelGrid>
 </h:body>
 </html>

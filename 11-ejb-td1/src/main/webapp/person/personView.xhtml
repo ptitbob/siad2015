@@ -33,34 +33,8 @@
             </p:calendar>
             <p:message for="birth"/>
         </p:panelGrid>
-        <p:panelGrid columns="1" rendered="#{personController.personPersisted}" styleClass="no-border">
-            <p:panelGrid columns="1" rendered="#{personController.person.address == null}" styleClass="no-border">
-                <p style="color: red;">Fiche Imcomplete, adresse manquante</p>
-            </p:panelGrid>
-            <p:panelGrid columns="3" rendered="#{personController.person.address != null}" styleClass="no-border">
-                <p:outputLabel for="addressLine1" value="Adresse (1)"/>
-                <p:inputText id="addressLine1" value="#{personController.person.address.line1}"/>
-                <p:message for="addressLine1"/>
-                <p:outputLabel for="addressLine2" value="Adresse (2)"/>
-                <p:inputText id="addressLine2" value="#{personController.person.address.line1}"/>
-                <p:message for="addressLine2"/>
-                <p:outputLabel for="cityName" value="Ville"/>
-                <p:outputLabel id="cityName" value="#{personController.person.address.city.name}"/>
-                <p:outputLabel value="(#{personController.person.address.city.cityStatus.label})"/>
-            </p:panelGrid>
-            <p:commandButton value="Valider" action="#{personController.updatePerson()}" style="margin-top: 1em;"
-                             ajax="false"/>
-        </p:panelGrid>
-        <p:panelGrid columns="1" rendered="#{not personController.personPersisted}" styleClass="no-border">
-            <p:panelGrid columns="2" styleClass="no-border">
-                <p:outputLabel value="Département" for="districtNumber"/>
-                <p:inputText id="districtNumber" maxlength="3" value="#{personController.districtINSEE}">
-                    <f:validateRegex pattern="^[0-9][0-9]*$" for="districtNumber"/>
-                    <f:converter converterId="districtInsee" for="districtNumber"/>
-                </p:inputText>
-            </p:panelGrid>
-            <p:commandButton value="suivant" action="#{personController.selectDistrict()}" ajax="false"/>
-        </p:panelGrid>
+        <p:commandButton value="Valider" action="#{personController.updatePerson()}" style="margin-top: 1em;"
+                         ajax="false"/>
     </h:form>
     <h:form>
         <p:commandLink value="Retour à l'index" action="index"/>

@@ -1,7 +1,9 @@
 package fr.univ.tours.siad.view;
 
+import fr.univ.tours.siad.service.CityService;
+import fr.univ.tours.siad.service.DistrictService;
 import fr.univ.tours.siad.service.PersonService;
-import fr.univ.tours.siad.util.data.bean.Person;
+import fr.univ.tours.siad.util.data.bean.*;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +16,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by francois on 28/09/15.
@@ -45,6 +48,12 @@ public class PersonController implements Serializable {
     @EJB
     private PersonService personService;
 
+    @EJB
+    private DistrictService districtService;
+
+    @EJB
+    private CityService cityService;
+
     /**
      * Identifiant de la personne
      */
@@ -62,6 +71,14 @@ public class PersonController implements Serializable {
     @Inject
     private Logger logger;
 
+    private String districtINSEE;
+
+    private District district;
+
+    private List<City> cityList;
+
+    private Set<ZipCode> zipCodeSet;
+
     /**
      * Constructeur
      */
@@ -74,28 +91,31 @@ public class PersonController implements Serializable {
     @PostConstruct
     public void initializePerson() {
         logger.debug("Initialisation du controller PersonController");
-        HttpServletRequest request = /* recupération de la requete HTTP */
-                (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        String sMemberId = request.getParameter(PERSON_ID);
-        try {
-            personId = sMemberId == null ? null : Long.parseLong(sMemberId);
-        } catch (NumberFormatException e) {
+        if (conversation.isTransient()) {
+            HttpServletRequest request = /* recupération de la requete HTTP */
+                    (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+            String sMemberId = request.getParameter(PERSON_ID);
+            try {
+                personId = sMemberId == null ? null : Long.parseLong(sMemberId);
+            } catch (NumberFormatException e) {
             /* Pensez au Exception runtime ! */
-            personId = null;
+                personId = null;
+            }
+            if (personId == null) {
+                logger.debug("Création de personne");
+                person = new Person();
+            } else {
+                logger.debug("Edition de person - Id : " + personId);
+                person = personService.getById(personId);
+                logger.debug("Personne retrouvée : " + person);
+            }
+            conversation.begin();
         }
-        if (personId == null) {
-            logger.debug("Création de personne");
-            person = new Person();
-        } else {
-            logger.debug("Edition de person - Id : " + personId);
-            person = personService.getById(personId);
-            logger.debug("Personne retrouvée : " + person);
-        }
-        conversation.begin();
     }
 
     /**
      * Mise à jour ou création de la personne via l'appel a l'EJB PersonService et renvoi d'un outcome pour afficher la liste
+     *
      * @return outcome pour afficher la liste
      */
     public String updatePerson() {
@@ -116,14 +136,33 @@ public class PersonController implements Serializable {
 
     /**
      * Renvoi la liste des personne
+     *
      * @return liste d'entité personne présente en base.
      */
     public List<Person> getPersonList() {
         return personService.getPersonList();
     }
 
+    public String selectDistrict() {
+        logger.debug("Département saisie : " + districtINSEE);
+        district = districtService.getByINSEE(districtINSEE);
+        if (district != null) {
+            cityList = cityService.findFor(district);
+            return "selectcity";
+        }
+        return null;
+    }
+
+    public String selectCity(City selectedCity) {
+        person.setAddress(new Address());
+        person.getAddress().setCity(selectedCity);
+        zipCodeSet = selectedCity.getZipCodeSet();
+        return "fillAddress";
+    }
+
     /**
      * Test si une personne a été persistée en base
+     *
      * @return vrai ou faux
      */
     public boolean isPersonPersisted() {
@@ -136,5 +175,37 @@ public class PersonController implements Serializable {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public String getDistrictINSEE() {
+        return districtINSEE;
+    }
+
+    public void setDistrictINSEE(String districtINSEE) {
+        this.districtINSEE = districtINSEE;
+    }
+
+    public District getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(District district) {
+        this.district = district;
+    }
+
+    public List<City> getCityList() {
+        return cityList;
+    }
+
+    public void setCityList(List<City> cityList) {
+        this.cityList = cityList;
+    }
+
+    public Set<ZipCode> getZipCodeSet() {
+        return zipCodeSet;
+    }
+
+    public void setZipCodeSet(Set<ZipCode> zipCodeSet) {
+        this.zipCodeSet = zipCodeSet;
     }
 }
