@@ -497,8 +497,8 @@
                         <ul style="text-align: left">
                             <li>Région
                                 <ul>
-                                    <li>Créer une classe de service permettant d'exposer toutes les méthodes neccessaire</li>
-                                    <li>La bean JPA des region : <code>fr.univ.tours.siad.util.data.bean.Region</code>(module <code>data</code>)
+                                    <li>Créer une classe de service permettant d'exposer toutes les méthodes neccessaires</li>
+                                    <li>La bean JPA des regions : <code>fr.univ.tours.siad.util.data.bean.Region</code>(module <code>data</code>)
                                         <ul>
                                             <li>Vous trouverez les requêtes preparées</li>
                                             <li>Pour voir comment executer une requête nommée (préparée), regardez les précedent TD au niveau des services appelés par les controlleurs ;)</li>
@@ -581,7 +581,6 @@
                                                     <li>Champ 1 de l'adresse</li>
                                                     <li>Champ 2 de l'adresse</li>
                                                     <li>La ville</li>
-                                                    <li>Le code postal</li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -600,28 +599,23 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li>remplacer le bouton validation, par un bouton suivant qui permettra d'afficher la page suivant : selection d'une ville (navigation)</li>
+                                            <li>remplacer le bouton validation, par un bouton suivant qui permettra d'afficher la page suivante : selection d'une ville (navigation)</li>
                                             <li><span style="font-style: italic">Prenez garde à ne pas fermer la conversation dans ce cas là</span>.</li>
                                             <li>Créer la page de selection de la ville
                                                 <ul>
                                                     <li>Cette page affichera un tableau avec la liste des ville lié au département</li>
-                                                    <li>La selection d'une ville ouvrira la page de saisie de l'adresse
+                                                    <li>La selection d'une ville ouvrira la page de saisie de l'adresse (par le champ de votre choix)
                                                         <ul>
-                                                            <li>Lors de la selection de la ville, une adresse sera créée, lié à la personne</li>
+                                                            <li>Lors de la selection de la ville, une adresse sera créée, lié à la personne (pensez à valoriser la ville)</li>
                                                             <li>La page affichera les 2 champs de saisie de la rue</li>
-                                                            <li>En dessous, on permettra à l'utilisateur de selectionner un code postal à l'aide de radio bouton
-                                                                <ul>
-                                                                    <li><span style="font-style: italic">Inspirez vous de la page de demonstration des <a href="http://www.primefaces.org/showcase/ui/input/oneRadio.xhtml" target="_blank">radio bouton primefaces</a></span></li>
-                                                                </ul>
-                                                            </li>
                                                             <li>Un bouton permettra de valider la personne au complet et renverra à la page de liste
                                                                 <ul>
-                                                                    <li>Attention, le service de gestion des adresses doit être séparé du service de gestion des personnes
+                                                                    <li><span style="font-style: italic; font-weight: bold">Il appelera la méthode d'update du controlleur Personne, cependant <span style="text-decoration: underline">vous ne devrez en aucun cas modifier celle-ci</span> tout en respectant les consignes ci dessous : </span>
                                                                         <ul>
-                                                                            <li>Il devra exposer une méthode de sauvegarde de l'adresse qui ne <span style="font-style: italic; font-weight: bold">pourra pas être appelé <span style="text-decoration: underline">en dehors d'un contexte de transaction déjà inité</span></span>.</li>
+                                                                            <li>La métode de sauvegarde de l'adresse <span style="font-style: italic; font-weight: bold">ne pourra pas être appelé <span style="text-decoration: underline">en dehors d'un contexte de transaction déjà inité</span></span>.</li>
                                                                         </ul>
                                                                     </li>
-                                                                    <li>C'est à ce moment que la conversation devra être terminée</li>
+                                                                    <li>C'est à ce moment que la conversation devra être terminée - Vous n'avez rien à faire, c'est déjà codé dans le controlleur.</li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
