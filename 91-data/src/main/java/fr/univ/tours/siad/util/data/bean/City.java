@@ -53,31 +53,58 @@ public class City {
     public static final String CITY_ID = "id";
     public static final String INSEEID = "CITY_INSEEID";
 
+    /**
+     * Identifiant (PK)
+     */
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "city_sequence")
     @Column(name = CITY_ID)
     private Long id;
 
+    /**
+     * Region
+     */
     @ManyToOne(fetch = LAZY)
     private Region region;
 
+    /**
+     * Département
+     */
     @ManyToOne(fetch = LAZY)
     private District district;
 
+    /**
+     * N° INSEE de la ville
+     */
     @Column(length = 5)
     private String inseeId;
 
+    /**
+     * Nom de la ville
+     */
     @Column(length = 100)
     private String name;
 
+    /**
+     * Status de la ville
+     */
     @ManyToOne(fetch = EAGER)
     private CityStatus cityStatus;
 
+    /**
+     * Altitude
+     */
     @Column
     private Double elevation;
 
+    /**
+     * Liste des codes de la ville
+     */
     @OneToMany(mappedBy = "city", fetch = LAZY)
     private Set<ZipCode> zipCodeSet;
 
+    /**
+     * Constructeur
+     */
     public City() {
     }
 

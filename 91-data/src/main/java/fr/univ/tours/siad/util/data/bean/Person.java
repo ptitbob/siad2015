@@ -65,6 +65,9 @@ public class Person implements Serializable {
     @Column(length = 7)
     private String reference;
 
+    /**
+     * Adresse
+     */
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = ADDRESS_FK, referencedColumnName = Address.ADDRESS_ID)
     private Address address;

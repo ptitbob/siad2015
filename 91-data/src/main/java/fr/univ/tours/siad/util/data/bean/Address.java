@@ -14,27 +14,48 @@ public class Address {
     private static final String ZIPCODE_FK = "ZIPCODE_FK";
     public static final String ADDRESS_ID = "ADDRESS_ID";
 
+    /**
+     * Identifiant (PK)
+     */
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_sequence")
     @Column(name = ADDRESS_ID)
     private Long id;
 
+    /**
+     * Ligne 1 de l'adresse
+     */
     @Column(length = 100)
     private String line1;
 
+    /**
+     * Ligne 2 de l'adresse
+     */
     @Column(length = 100)
     private String Line2;
 
+    /**
+     * étage
+     */
     @Column @Min(0)
     private Integer floor;
 
+    /**
+     * Ville
+     */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = CITY_FK, referencedColumnName = City.CITY_ID)
     private City city;
 
+    /**
+     * Code postal
+     */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = ZIPCODE_FK, referencedColumnName = ZipCode.ZIPCODE_ID)
     private ZipCode zipCode;
 
+    /**
+     * Constructeur
+     */
     public Address() {
     }
 

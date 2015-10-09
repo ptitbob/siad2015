@@ -27,25 +27,46 @@ public class Region {
     public static final String INSEEID = "regionInseeId";
     public static final String FIND_BY_INSEEID = "Region.FIND_BY_INSEEID";
 
+    /**
+     * Identifiant (PK)
+     */
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "region_sequence")
     @Column(name = "region_id")
     private Long id;
 
+    /**
+     * N° INSEE de la region
+     */
     @Column(length = 2)
     private String inseeId;
 
+    /**
+     * N° INSEE de la prefecture de region
+     */
     @Column(length = 5)
     private String chefLieuId;
 
+    /**
+     * Nom en majuscule
+     */
     @Column(length = 100)
     private String upperName;
 
+    /**
+     * Nom en formatage normal
+     */
     @Column(length = 100)
     private String name;
 
+    /**
+     * Liste des départements
+     */
     @OneToMany(fetch = LAZY, mappedBy = "region")
     private Set<District> districtSet;
 
+    /**
+     * Constructeur
+     */
     public Region() {
     }
 

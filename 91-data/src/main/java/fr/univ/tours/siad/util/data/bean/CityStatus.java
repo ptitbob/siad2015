@@ -12,12 +12,22 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class CityStatus {
 
     public static final String CITY_LABEL = "cityLabel";
+
+    /**
+     * Identifiant (PK)
+     */
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "citystatus_sequence")
     private Long id;
 
+    /**
+     * Libellé du statut de la ville
+     */
     @Column(length = 100)
     private String label;
 
+    /**
+     * Constructeur
+     */
     public CityStatus() {
     }
 
