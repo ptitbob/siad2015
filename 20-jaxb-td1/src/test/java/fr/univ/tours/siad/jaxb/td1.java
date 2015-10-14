@@ -1,23 +1,48 @@
 package fr.univ.tours.siad.jaxb;
 
 import fr.univ.tours.siad.jaxb.model.person.Address;
-import org.junit.BeforeClass;
+import fr.univ.tours.siad.jaxb.model.person.Donor;
+import fr.univ.tours.siad.jaxb.model.person.DonorType;
+import fr.univ.tours.siad.jaxb.util.ValidateProcess;
 import org.junit.Test;
 
 import java.util.logging.Logger;
 
-public class td1 {
+public class td1 extends ValidateProcess {
 
     private static final Logger LOGGER = Logger.getLogger("td1");
 
-    @BeforeClass
-    public static final void initialisationClass() {
-
+    /**
+     * TD 1.1
+     * Validation des annotation porté sur la classe Address
+     * - La classe doit être sérialisable
+     *      - le nom de la sérialisation doit être adresse
+     * - La sérialisation doit se baser sur les champs
+     * - Les nom doivent être en Français
+     *      - id -> identifiant
+     *      - lineList -> Ligne
+     *      - zipCode -> code_postal
+     *      - town -> ville
+     * - L'identifiant doit être en attribut
+     */
+    @Test
+    public void validateAddress() {
+        LOGGER.info("TD 1.1 --> Test de l'adresse");
+        validateXML(new Address(1L, "Tours", "37000", "Ligne 1", "Ligne 2"), "td1.1-Address");
     }
 
     @Test
-    public void testAddress() {
-        LOGGER.info("TD 1.1 --> Test de l'adresse");
-        Address address = new Address(1L, "Tours", "37000", "ligne1", "Ligne2");
+    public void validateDonor() {
+        LOGGER.info("TD 1.2 --> Test des donnateur");
+        validateXML(
+                new Donor(1L, null, "Entreprise 1", 1000, DonorType.PM, new Address(1L, "Tours", "37000", "Ligne 1.1", "Ligne 1.2"))
+                , "td1.2-DonnorPM"
+        );
+        validateXML(
+                new Donor(2L, "Anthony Jr", "Stark", 10000000, DonorType.PP, new Address(2L, "Tours", "37000", "Ligne 2.1", "Ligne 2.2"))
+                , "td1.2-DonnorPP"
+        );
+        validateXML(new Address(1L, "Tours", "37000", "Ligne 1", "Ligne 2"), "td1.1-Address");
     }
+
 }
