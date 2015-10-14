@@ -14,7 +14,7 @@ public class td1 extends ValidateProcess {
 
     /**
      * TD 1.1
-     * Validation des annotation porté sur la classe Address
+     * Validation des annotation portée sur la classe Address
      * - La classe doit être sérialisable
      *      - le nom de la sérialisation doit être adresse
      * - La sérialisation doit se baser sur les champs
@@ -31,6 +31,23 @@ public class td1 extends ValidateProcess {
         validateXML(new Address(1L, "Tours", "37000", "Ligne 1", "Ligne 2"), "td1.1-Address");
     }
 
+    /**
+     * TD 1.2
+     * Validation des annotations portée sur la classe Donor (et pas seulement ;) )
+     * - La classe doit être sérialisable
+     *      - le nom doit être donnateur
+     * - La sérialisation doit se baser sur les champs
+     * - les nom doivent être en français
+     *      - donationAmount -> donnation
+     *      - donorType ->
+     *          - Doit être un attribut
+     *      - id -> identifiant
+     *          - Doit être un attribut
+     *      - name -> Prenom
+     *      - surname -> Nom
+     *      - phoneNumberList -> telephones
+     *      - address - addresse_principale
+     */
     @Test
     public void validateDonor() {
         LOGGER.info("TD 1.2 --> Test des donnateur");
