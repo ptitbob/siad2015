@@ -1,5 +1,7 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
+import java.util.Objects;
+
 /**
  * Donateur
  */
@@ -39,6 +41,20 @@ public class Donor extends Person {
 
     public void setDonorType(DonorType donorType) {
         this.donorType = donorType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Donor)) return false;
+        Donor donor = (Donor) o;
+        return Objects.equals(getDonationAmount(), donor.getDonationAmount()) &&
+                Objects.equals(getDonorType(), donor.getDonorType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDonorType());
     }
 
     @Override

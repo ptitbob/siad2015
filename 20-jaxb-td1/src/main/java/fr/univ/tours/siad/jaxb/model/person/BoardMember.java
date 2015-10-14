@@ -1,6 +1,6 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import java.util.Objects;
 
 /**
  * Membre du bureau
@@ -26,6 +26,20 @@ public class BoardMember extends Adherent {
 
     public void setBoardMemberType(BoardMemberType boardMemberType) {
         this.boardMemberType = boardMemberType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BoardMember)) return false;
+        if (!super.equals(o)) return false;
+        BoardMember that = (BoardMember) o;
+        return Objects.equals(getBoardMemberType(), that.getBoardMemberType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getBoardMemberType());
     }
 
     @Override

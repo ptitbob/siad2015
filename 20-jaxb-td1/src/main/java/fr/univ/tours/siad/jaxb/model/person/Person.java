@@ -1,6 +1,7 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Person {
 
@@ -82,6 +83,23 @@ public abstract class Person {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return Objects.equals(getId(), person.getId()) &&
+                Objects.equals(getName(), person.getName()) &&
+                Objects.equals(getSurname(), person.getSurname()) &&
+                Objects.equals(getPhoneNumberList(), person.getPhoneNumberList()) &&
+                Objects.equals(getAddress(), person.getAddress());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 
     @Override
