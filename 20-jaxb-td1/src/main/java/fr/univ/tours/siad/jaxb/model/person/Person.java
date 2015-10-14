@@ -1,9 +1,5 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 public abstract class Person {
@@ -33,15 +29,19 @@ public abstract class Person {
      */
     private Address address;
 
-    // adresse
-
     public Person() {
     }
 
     public Person(Long id, String name, String surname) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
+        this();
+        setId(id);
+        setName(name);
+        setSurname(surname);
+    }
+
+    public Person(Long id, String name, String surname, Address address) {
+        this(id, name, surname);
+        setAddress(address);
     }
 
     public Long getId() {
@@ -74,5 +74,13 @@ public abstract class Person {
 
     public void setPhoneNumberList(List<String> phoneNumberList) {
         this.phoneNumberList = phoneNumberList;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
