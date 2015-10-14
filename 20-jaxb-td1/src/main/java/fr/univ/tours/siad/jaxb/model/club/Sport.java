@@ -1,5 +1,7 @@
 package fr.univ.tours.siad.jaxb.model.club;
 
+import java.util.Objects;
+
 /**
  * Association sportive
  */
@@ -52,6 +54,22 @@ public class Sport extends Association {
 
     public void setTeamCount(Integer teamCount) {
         this.teamCount = teamCount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Sport)) return false;
+        if (!super.equals(o)) return false;
+        Sport sport1 = (Sport) o;
+        return Objects.equals(getSport(), sport1.getSport()) &&
+                Objects.equals(getSportType(), sport1.getSportType()) &&
+                Objects.equals(getTeamCount(), sport1.getTeamCount());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getSportType());
     }
 
     @Override

@@ -1,5 +1,7 @@
 package fr.univ.tours.siad.jaxb.model.club;
 
+import java.util.Objects;
+
 /**
  * Association culturelle
  */
@@ -24,6 +26,20 @@ public class Cultural extends Association {
 
     public void setAssociationTarget(String associationTarget) {
         this.associationTarget = associationTarget;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cultural)) return false;
+        if (!super.equals(o)) return false;
+        Cultural cultural = (Cultural) o;
+        return Objects.equals(getAssociationTarget(), cultural.getAssociationTarget());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getAssociationTarget());
     }
 
     @Override
