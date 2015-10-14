@@ -91,8 +91,9 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "id=" + id +
-                ", town='" + town + '\'' +
+                ", lineList=" + lineList +
                 ", zipcode='" + zipcode + '\'' +
+                ", town='" + town + '\'' +
                 '}';
     }
 }
