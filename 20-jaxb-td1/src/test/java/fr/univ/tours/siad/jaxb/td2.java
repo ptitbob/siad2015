@@ -1,16 +1,13 @@
 package fr.univ.tours.siad.jaxb;
 
+import fr.univ.tours.siad.jaxb.model.club.Sport;
+import fr.univ.tours.siad.jaxb.model.club.SportType;
+import fr.univ.tours.siad.jaxb.model.person.*;
+import fr.univ.tours.siad.jaxb.util.ValidateProcess;
 import org.junit.Test;
-import org.shipstone.sandbox.cours.model.club.Sport;
-import org.shipstone.sandbox.cours.model.club.SportType;
-import org.shipstone.sandbox.cours.model.person.*;
-import util.ValidateProcess;
 
 import java.util.logging.Logger;
 
-/**
- * Created by francois on 15/10/15.
- */
 public class td2 extends ValidateProcess {
 
     private static final Logger LOGGER = Logger.getLogger("td1");
