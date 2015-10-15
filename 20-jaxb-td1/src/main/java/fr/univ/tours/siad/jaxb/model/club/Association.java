@@ -5,9 +5,7 @@ import fr.univ.tours.siad.jaxb.model.person.Adherent;
 import fr.univ.tours.siad.jaxb.model.person.Donor;
 import fr.univ.tours.siad.jaxb.model.person.Person;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Association {
 
@@ -24,7 +22,7 @@ public class Association {
     /**
      * Liste des personnes adhérant à l'association (peux aussi recevoir des donnateur)
      */
-    private Set<Person> adherentList;
+    private List<Person> adherentList;
 
     /**
      * Nombre d'adhérent
@@ -37,12 +35,13 @@ public class Association {
     private Address address;
 
     public Association() {
-        this.adherentList = new HashSet<>();
+        this.adherentList = new LinkedList<>();
         adherentCount = 0;
     }
 
-    public Association(String name) {
+    public Association(Long id, String name) {
         this();
+        this.id = id;
         this.name = name;
     }
 
@@ -62,11 +61,11 @@ public class Association {
         this.name = name;
     }
 
-    public Set<Person> getAdherentList() {
+    public List<Person> getAdherentList() {
         return adherentList;
     }
 
-    public void setAdherentList(Set<Person> adherentList) {
+    public void setAdherentList(List<Person> adherentList) {
         this.adherentList = adherentList;
     }
 

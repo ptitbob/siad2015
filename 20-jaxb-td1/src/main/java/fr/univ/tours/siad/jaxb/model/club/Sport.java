@@ -8,25 +8,25 @@ import java.util.Objects;
 public class Sport extends Association {
 
     /**
-     * Nom du sport
+     * Nom du sport (nom xml : sport)
      */
     private String sport;
 
     /**
-     * Type de sport
+     * Type de sport (nom xml : sport_type)
      */
     private SportType sportType;
 
     /**
-     * Nombre d'équipe
+     * Nombre d'équipe (nom xml : nombre_equipe)
      */
     private Integer teamCount;
 
     public Sport() {
     }
 
-    public Sport(String name, String sport, SportType sportType, Integer teamCount) {
-        super(name);
+    public Sport(Long id, String name, String sport, SportType sportType, Integer teamCount) {
+        super(id, name);
         this.sport = sport;
         this.sportType = sportType;
         this.teamCount = teamCount;

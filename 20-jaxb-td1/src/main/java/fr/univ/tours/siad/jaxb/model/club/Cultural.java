@@ -15,8 +15,8 @@ public class Cultural extends Association {
     public Cultural() {
     }
 
-    public Cultural(String name, String associationTarget) {
-        super(name);
+    public Cultural(Long id, String name, String associationTarget) {
+        super(id, name);
         this.associationTarget = associationTarget;
     }
 
