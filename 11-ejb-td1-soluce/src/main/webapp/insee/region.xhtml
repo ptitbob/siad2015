@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+        >
+<h:head>
+    <meta content="text/html; charset=UTF-8"/>
+    <title>Region</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h1 style="text-align: center">Région : <p:outputLabel value="#{regionController.region.name}"/></h1>
+    <p:panel header="Prefecture de région" rendered="#{regionController.regionMainCity != null}">
+        <h:panelGrid columns="2">
+            <p:outputLabel for="mainCityName" value="Nom : "/>
+            <p:outputLabel id="mainCityName" value="#{regionController.regionMainCity.name}"/>
+            <p:outputLabel for="mainCityElevation" value="Altitude : "/>
+            <p:outputLabel id="mainCityElevation" value="#{regionController.regionMainCity.elevation} m"/>
+            <p:outputLabel for="mainCityInsee" value="Numero INSEE : "/>
+            <p:outputLabel id="mainCityInsee" value="#{regionController.regionMainCity.inseeId}"/>
+        </h:panelGrid>
+    </p:panel>
+    <p:dataTable value="#{regionController.districtList}" var="district">
+        <p:column>
+            <f:facet name="header">Nom</f:facet>
+            <p:outputLabel value="#{district.name}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">N° INSEE</f:facet>
+            <p:link value="#{district.inseeId}" outcome="district">
+                <f:param name="districtId" value="#{district.id}"/>
+            </p:link>
+        </p:column>
+    </p:dataTable>
+    <h:form>
+        <p:commandLink value="Retour à l'index" action="index"/>
+    </h:form>
+</h:body>
+</html>

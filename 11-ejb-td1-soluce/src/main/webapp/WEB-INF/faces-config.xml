@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>create</from-outcome>
+            <to-view-id>/person/personView.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/person/personList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>regionList</from-outcome>
+            <to-view-id>/insee/regionList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/person/personView.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/person/personList.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>selectcity</from-outcome>
+            <to-view-id>/person/personSelectCity.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/person/personSelectCity.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>fillAddress</from-outcome>
+            <to-view-id>/person/personAddress.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/person/personAddress.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/person/personList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/insee/regionList.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>region</from-outcome>
+            <to-view-id>/insee/region.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/insee/region.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>district</from-outcome>
+            <to-view-id>/insee/district.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

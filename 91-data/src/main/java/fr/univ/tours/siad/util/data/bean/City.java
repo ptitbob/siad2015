@@ -57,7 +57,6 @@ public class City {
      * Identifiant (PK)
      */
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "city_sequence")
-    @Column(name = CITY_ID)
     private Long id;
 
     /**

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+        >
+<h:head>
+    <meta content="text/html; charset=UTF-8"/>
+    <title>Region - List</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h1 style="text-align: center">Liste des Régions</h1>
+    <p:dataTable value="#{regionController.regionList}" var="region">
+        <p:column>
+            <f:facet name="header">Nom</f:facet>
+            <p:outputLabel value="#{region.name}"/>
+        </p:column>
+        <p:column>
+            <f:facet name="header">N° INSEE</f:facet>
+            <p:link value="#{region.inseeId}" outcome="region">
+                <f:param name="regionId" value="#{region.id}"/>
+            </p:link>
+        </p:column>
+    </p:dataTable>
+    <h:form>
+        <p:commandLink value="Retour à l'index" action="index"/>
+    </h:form>
+</h:body>
+</html>
