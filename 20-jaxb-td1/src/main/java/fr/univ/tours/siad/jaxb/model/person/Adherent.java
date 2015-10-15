@@ -12,8 +12,8 @@ public class Adherent extends Person {
     public Adherent() {
     }
 
-    public Adherent(Long id, String name, String surname, String membershipDate) {
-        super(id, name, surname);
+    public Adherent(Long id, String name, String surname, String membershipDate, Address address) {
+        super(id, name, surname, address);
         this.membershipDate = membershipDate;
     }
 
@@ -29,13 +29,14 @@ public class Adherent extends Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Adherent)) return false;
+        if (!super.equals(o)) return false;
         Adherent adherent = (Adherent) o;
         return Objects.equals(getMembershipDate(), adherent.getMembershipDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getMembershipDate());
+        return Objects.hash(super.hashCode(), getMembershipDate());
     }
 
     @Override

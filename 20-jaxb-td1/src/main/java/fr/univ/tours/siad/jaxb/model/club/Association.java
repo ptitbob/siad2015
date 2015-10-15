@@ -1,6 +1,8 @@
 package fr.univ.tours.siad.jaxb.model.club;
 
 import fr.univ.tours.siad.jaxb.model.person.Address;
+import fr.univ.tours.siad.jaxb.model.person.Adherent;
+import fr.univ.tours.siad.jaxb.model.person.Donor;
 import fr.univ.tours.siad.jaxb.model.person.Person;
 
 import java.util.HashSet;
@@ -20,7 +22,7 @@ public class Association {
     private String name;
 
     /**
-     * Liste des personnes adhérant à l'association
+     * Liste des personnes adhérant à l'association (peux aussi recevoir des donnateur)
      */
     private Set<Person> adherentList;
 
@@ -36,6 +38,7 @@ public class Association {
 
     public Association() {
         this.adherentList = new HashSet<>();
+        adherentCount = 0;
     }
 
     public Association(String name) {
@@ -67,16 +70,16 @@ public class Association {
         this.adherentList = adherentList;
     }
 
-    public void addAdherent(Person person) {
-        getAdherentCount();
-        adherentList.add(person);
+    public void addDonor(Donor donor) {
+        adherentList.add(donor);
+    }
+
+    public void addAdherent(Adherent adherent) {
+        adherentList.add(adherent);
         adherentCount++;
     }
 
     public int getAdherentCount() {
-        if (adherentCount == Integer.MIN_VALUE) {
-            adherentCount = adherentList.size();
-        }
         return adherentCount;
      }
 
