@@ -15,8 +15,8 @@ public class BoardMember extends Adherent {
     public BoardMember() {
     }
 
-    public BoardMember(Long id, String name, String surname, String membershipDate, BoardMemberType boardMemberType) {
-        super(id, name, surname, membershipDate);
+    public BoardMember(Long id, String name, String surname, String membershipDate, BoardMemberType boardMemberType, Address address) {
+        super(id, name, surname, membershipDate, address);
         this.boardMemberType = boardMemberType;
     }
 
