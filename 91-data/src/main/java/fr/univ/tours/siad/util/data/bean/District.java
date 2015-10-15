@@ -40,24 +40,45 @@ public class District {
 
     public static final String INSEEID = "districtInseeId";
 
+    /**
+     * Identifiant (PK)
+     */
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "district_sequence")
     public Long id;
 
+    /**
+     * Région
+     */
     @ManyToOne(fetch = LAZY)
     private Region region;
 
+    /**
+     * N° INSEE du département
+     */
     @Column(length = 5)
     private String inseeId;
 
+    /**
+     * Prefecture départementale
+     */
     @Column(length = 5)
     private String chefLieuId;
 
+    /**
+     * Nom en majuscule
+     */
     @Column(length = 100)
     private String upperName;
 
+    /**
+     * Nom avec formatage normal
+     */
     @Column(length = 100)
     private String name;
 
+    /**
+     * Constructeur
+     */
     public District() {
     }
 

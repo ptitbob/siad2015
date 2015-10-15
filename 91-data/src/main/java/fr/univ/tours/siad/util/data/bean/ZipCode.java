@@ -15,16 +15,28 @@ public class ZipCode {
 
     public static final String ZIPCODE_ID = "ID";
 
+    /**
+     * Identifiant (PK)
+     */
     @Id @GeneratedValue(strategy = SEQUENCE, generator = "zipcode_sequence")
     @Column(name = ZIPCODE_ID)
     private Long id;
 
+    /**
+     * Code postal
+     */
     @Column(length = 6)
     private String zipCode;
 
+    /**
+     * ville
+     */
     @ManyToOne
     private City city;
 
+    /**
+     * constructeur
+     */
     public ZipCode() {
     }
 
