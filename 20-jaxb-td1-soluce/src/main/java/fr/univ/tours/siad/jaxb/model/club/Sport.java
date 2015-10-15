@@ -1,25 +1,34 @@
 package fr.univ.tours.siad.jaxb.model.club;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
 /**
  * Association sportive
  */
+@XmlRootElement(name = "association_sportive")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Sport extends Association {
 
     /**
-     * Nom du sport (nom xml : sport)
+     * Nom du sport
      */
+    @XmlAttribute
     private String sport;
 
     /**
-     * Type de sport (nom xml : sport_type)
+     * Type de sport
      */
+    @XmlAttribute(name = "sport_type")
     private SportType sportType;
 
     /**
-     * Nombre d'équipe (nom xml : nombre_equipe)
+     * Nombre d'équipe
      */
+    @XmlAttribute(name = "nombre_equipe")
     private Integer teamCount;
 
     public Sport() {

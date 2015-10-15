@@ -1,17 +1,22 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
+import javax.xml.bind.annotation.*;
 import java.util.Objects;
 
 /**
  * Donateur
  */
+@XmlRootElement(name = "donnateur")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Donor extends Person {
 
     /**
      * Montant de la donnation
      */
+    @XmlElement(name = "donnation")
     private int donationAmount;
 
+    @XmlAttribute(name = "type")
     private DonorType donorType;
 
     public Donor() {
@@ -47,6 +52,7 @@ public class Donor extends Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Donor)) return false;
+        if (!super.equals(o)) return false;
         Donor donor = (Donor) o;
         return Objects.equals(getDonationAmount(), donor.getDonationAmount()) &&
                 Objects.equals(getDonorType(), donor.getDonorType());
@@ -54,7 +60,7 @@ public class Donor extends Person {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getDonorType());
+        return Objects.hash(super.hashCode(), getDonorType());
     }
 
     @Override

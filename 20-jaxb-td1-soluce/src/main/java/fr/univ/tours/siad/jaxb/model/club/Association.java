@@ -1,27 +1,37 @@
 package fr.univ.tours.siad.jaxb.model.club;
 
-import fr.univ.tours.siad.jaxb.model.person.Address;
-import fr.univ.tours.siad.jaxb.model.person.Adherent;
-import fr.univ.tours.siad.jaxb.model.person.Donor;
-import fr.univ.tours.siad.jaxb.model.person.Person;
+import fr.univ.tours.siad.jaxb.model.person.*;
 
-import java.util.*;
+import javax.xml.bind.annotation.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 
+@XmlRootElement(name = "association")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Association {
 
     /**
      * Identifiant
      */
+    @XmlAttribute(name = "identifiant")
     private Long id;
 
     /**
      * Nom de l'association
      */
+    @XmlElement(name = "nom")
     private String name;
 
     /**
      * Liste des personnes adhérant à l'association (peux aussi recevoir des donnateur)
      */
+    @XmlElementWrapper(name = "membres")
+    @XmlElements({
+            @XmlElement(name = "membre_bureau", type = BoardMember.class)
+            , @XmlElement(name = "adherent", type = Adherent.class)
+            , @XmlElement(name = "donnateur", type = Donor.class)
+    })
     private List<Person> adherentList;
 
     /**
@@ -80,7 +90,7 @@ public class Association {
 
     public int getAdherentCount() {
         return adherentCount;
-     }
+    }
 
     public Address getAddress() {
         return address;

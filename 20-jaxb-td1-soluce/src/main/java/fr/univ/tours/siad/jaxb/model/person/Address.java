@@ -1,5 +1,6 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
+import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -7,26 +8,32 @@ import java.util.Objects;
 /**
  * Adresse
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Address {
 
     /**
      * Identifiant
      */
+    @XmlAttribute(name = "identifiant")
     public Long id;
 
     /**
      * Liste des ligne d'adresse (rue, étage, etc...)
      */
+    @XmlElement(name = "Ligne")
     public List<String> lineList;
 
     /**
      * Code postal
      */
+    @XmlElement(name = "code_postal")
     public String zipcode;
 
     /**
      * Ville
      */
+    @XmlElement(name = "ville")
     public String town;
 
     public Address() {

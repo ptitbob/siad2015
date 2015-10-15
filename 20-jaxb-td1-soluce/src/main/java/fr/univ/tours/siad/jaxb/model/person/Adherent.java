@@ -1,7 +1,9 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
+@XmlRootElement
 public class Adherent extends Person {
 
     /**

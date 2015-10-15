@@ -1,23 +1,29 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
+import javax.xml.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 
+@XmlRootElement(name = "Personne")
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Person {
 
     /**
      * Identifiant
      */
+    @XmlAttribute(name = "identifiant")
     private Long id;
 
     /**
      * Prénom
      */
+    @XmlElement(name = "Prenom")
     private String name;
 
     /**
      * Nom de famille
      */
+    @XmlElement(name = "Nom")
     private String surname;
 
     /**
@@ -28,7 +34,10 @@ public abstract class Person {
     /**
      * Adresse de la personne
      */
+    @XmlElement(name = "addresse_principale")
     private Address address;
+
+    // adresse
 
     public Person() {
     }
@@ -109,6 +118,7 @@ public abstract class Person {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", address=" + address +
+                ", phoneNumberList=" + phoneNumberList +
                 '}';
     }
 }

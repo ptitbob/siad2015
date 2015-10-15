@@ -1,15 +1,19 @@
 package fr.univ.tours.siad.jaxb.model.person;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
 /**
  * Membre du bureau
  */
+@XmlRootElement
 public class BoardMember extends Adherent {
 
     /**
      * Poste dans le bureau de l'association
      */
+    @XmlAttribute(name = "poste")
     private BoardMemberType boardMemberType;
 
     public BoardMember() {
