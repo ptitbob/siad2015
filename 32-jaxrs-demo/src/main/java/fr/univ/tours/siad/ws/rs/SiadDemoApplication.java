@@ -1,7 +1,8 @@
 package fr.univ.tours.siad.ws.rs;
 
-/**
- * Created by francois on 04/11/15.
- */
-public class SiadDemoApplication {
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
+
+@ApplicationPath("api")
+public class SiadDemoApplication extends Application {
 }

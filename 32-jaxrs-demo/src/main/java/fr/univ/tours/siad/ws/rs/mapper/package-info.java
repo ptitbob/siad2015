@@ -1,4 +1,6 @@
 /**
+ * Emplacement ou se trouve les mapper d'exception et body writer / reader
+ *
  * SIAD - JavaEE et WS
  *
  * @author francois

@@ -1,14 +1,20 @@
 package fr.univ.tours.siad.ws.rs.bean;
 
+import javax.xml.bind.annotation.*;
+
 /**
  * SIAD - JavaEE et WS
  *
  * @author francois
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class RegionSimpleDto {
 
+    @XmlAttribute
     private String inseeId;
 
+    @XmlElement(name = "nom")
     private String name;
 
     public RegionSimpleDto() {
