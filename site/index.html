@@ -708,3 +708,714 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blois - SIAD M2 - Année 2015</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet"/>
+    <!-- Squad theme CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="color/default.css" rel="stylesheet">
+    <style>
+        .td-paragraph {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<!-- Preloader -->
+<div id="preloader">
+    <div id="load"></div>
+</div>
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <h1>SIAD M2</h1>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#intro">Home</a></li>
+                <li><a href="#licence">Licence</a></li>
+                <li><a href="#service">Informations</a></li>
+                <li><a href="#project">Le projet</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Les exercices<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#td-jsf-td1">JSF - TD1 - Les bases</a></li>
+                        <li><a href="#td-jsf-td2">JSF - TD2 - Validateur et convertisseur</a></li>
+                        <li><a href="#td-ejb-td1">EJB & JSF - TD1 - Vues, Controlleurs & services</a></li>
+                        <li><a href="#td-jaxb-td">JAXB, une histoire de serialisation</a></li>
+                        <!--
+                      <li><a href="#">EJB & JSF</a></li>
+                      <li><a href="#">Binding XML : JAXB</a></li>
+                      <li><a href="#">Webservice SOAP : JAX-WS</a></li>
+                      <li><a href="#">Webservice REST : JAX-RS</a></li>
+                      <li><a href="#">Webservice REST côté serveur & client</a></li>
+                      --
+                    </ul>
+                  </li>
+                </ul>
+                      </div>
+                      <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Section: intro -->
+<section id="intro" class="intro">
+
+    <div class="slogan">
+        <h2>SIAD M2 année 2015</h2>
+        <h4>Les services Web dans un environement Java EE</h4>
+    </div>
+    <div class="page-scroll">
+        <a href="#service" class="btn btn-circle">
+            <i class="fa fa-angle-double-down animated"></i>
+        </a>
+    </div>
+</section>
+<!-- /Section: intro -->
+
+<!-- Section: about -->
+<section id="licence" class="home-section text-center">
+    <div class="heading-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                        <div class="section-heading">
+                            <h2>Licence</h2>
+                            <i class="fa fa-2x fa-angle-down"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+            </div>
+            <div class="service-icon">
+                <i class="fa fa-creative-commons" style="font-size: 50px"></i>
+            </div>
+            <p>
+                <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">siad2015</span> de <a
+                    xmlns:cc="http://creativecommons.org/ns#" href="www.shipstone.org" property="cc:attributionName"
+                    rel="cc:attributionURL">François Robert</a> est mis à disposition selon les termes de la <a
+                    rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licence Creative Commons
+                Attribution - Partage dans les Mêmes Conditions 4.0 International</a>.<br/>Fondé(e) sur une œuvre à <a
+                    xmlns:dct="http://purl.org/dc/terms/" href="http://www.shipstone.org/siad/m2" rel="dct:source">www.shipstone.org/siad/m2</a>
+            </p>
+
+            <p>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                        alt="Licence Creative Commons" style="border-width:0"
+                        src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"/></a>
+            </p>
+        </div>
+    </div>
+</section>
+<!-- /Section: about -->
+
+
+<!-- Section: services -->
+<section id="service" class="home-section text-center bg-gray">
+
+    <div class="heading-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                        <div class="section-heading">
+                            <h2>Informations</h2>
+                            <i class="fa fa-2x fa-angle-down"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <div class="wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fa fa-5x fa-github"></i>
+                        </div>
+                        <div class="service-desc">
+                            <h5>Repository de source</h5>
+
+                            <p>Les sources sont disponible sur github (<a href="https://github.com/ptitbob/siad2015">github.com/ptitbob/siad2015</a>)
+                            </p>
+
+                            <p>Elles seront misent à jour avant chaque cours, et les corrigé d'exercices disponible dans
+                                les jours qui suivent le cours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fa fa-5x fa-book"></i>
+                        </div>
+                        <div class="service-desc">
+                            <h5>Les cours</h5>
+
+                            <p>Vous pouvez télécharger les cours ici : <a href="http://goo.gl/rp4RTo">siadM2-JavaEE-cours</a>.
+                            </p>
+
+                            <p>Ils seront disponible quelques jours avant le premier cours</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fa fa-5x fa-desktop"></i>
+                        </div>
+                        <div class="service-desc">
+                            <h5>Machine virtuelle</h5>
+
+                            <p>Afin d'éviter toutes installations qui ne pourrait être identique pour tout le monde, je
+                                vous propose une machine virtuelle sur laquelle vous aurez à disposition tout ce dont
+                                vous avez besoin.</p>
+
+                            <p>Rendez vous <a href="#vm">ici</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+			<div class="col-sm-3 col-md-3">
+				<div class="wow fadeInRight" data-wow-delay="0.2s">
+                <div class="service-box">
+					<div class="service-icon">
+						<i class="fa fa-creative-commons" style="font-size: 50px"></i>
+					</div>
+					<div class="service-desc">
+						<h5>Licence</h5>
+						<p>
+							<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">siad2015</span> de <a xmlns:cc="http://creativecommons.org/ns#" href="www.shipstone.org" property="cc:attributionName" rel="cc:attributionURL">François Robert</a> est mis à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licence Creative Commons Attribution -  Partage dans les Mêmes Conditions 4.0 International</a>.<br />Fondé(e) sur une œuvre à <a xmlns:dct="http://purl.org/dc/terms/" href="www.shipstone.org/siad" rel="dct:source">www.shipstone.org/siad</a>
+						</p>
+						<p>
+							<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+						</p>
+					</div>
+                </div>
+				</div>
+            </div>
+            -->
+        </div>
+    </div>
+</section>
+<!-- /Section: services -->
+
+<section id="project" class="home-section text-center">
+    <div class="heading-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                        <div class="section-heading">
+                            <h2>Le projet</h2>
+                                <span class="fa-stack fa-5x">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa-graduation-cap fa-stack-1x"></i>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <p>Vous trouverez ici toutes les informations utiles pour le projet ou l'examen, ce n'est pas encore
+                    forcement fixé.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="vm" class="home-section text-center">
+    <div class="heading-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                        <div class="section-heading">
+                            <h2>Machine virtuelle</h2>
+                                <span class="fa-stack fa-5x">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa-desktop fa-stack-1x"></i>
+                                </span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <p>La machine virtuelle fonctionne via <a href="https://www.virtualbox.org/">virtual box</a>.</p>
+
+                <p>L'image contient une machine basé sur Ubuntu, ou sont installé différents logiciels neccessaires au
+                    cours :</p>
+
+                <p><a href="https://netbeans.org/">Netbeans</a></p>
+
+                <p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java
+                    8</a></p>
+
+                <p><a href="https://maven.apache.org/">Maven</a></p>
+
+                <p><a href="https://git-scm.com/">git</a></p>
+
+                <p><a href="http://wildfly.org/">wildfly</a></p>
+
+                <p><a href="http://www.postgresql.org/">PostgresSQL</a></p>
+
+                <p>etc...</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h5>Vous pouvez télécharger l'image : <a href="http://goo.gl/uShs9p">Machine virtuelle v1.1&nbsp;<i
+                        class="fa fa-download"></i></a>&nbsp;(4.3 Go).</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 id="infovm" style="margin-bottom: 5px;">Informations pratique</h4>
+                </div>
+                <div class="panel-body" style="">
+                    <p>
+                        Le login est : <span class="label label-primary" style="font-size: 100%">siad</span>
+                    </p>
+
+                    <p>
+                        Le password est : <span class="label label-primary" style="font-size: 100%">siad2015</span>
+                    </p>
+
+                    <p>
+                        Les accès sont uniformisés, c'est à dire que l'acces à postgreSQL répond aussi à cette identité.
+                        Vous accès root sur vos machines.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel panel-danger">
+                <div class="panel-heading ">
+                    <h5 style="margin-bottom: 5px;">Données personnelle</h5>
+                </div>
+                <div class="panel-body">
+                    <p class="td-paragraph">
+                        La machine virtuelle est réinitialisé chaque nuit, donc les données que vous stockez dessus ne
+                        sont pas pérenne. Pensez à sauvegarder vos données sur votre espace personnelle.
+                    </p>
+
+                    <p>
+                        Je vous encourage à sauvegarder vos code sources pour pouvoir les consulter ultérieurement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- section exercice -->
+<section id="td" class="home-section text-center bg-gray">
+    <div class="container">
+        <div class="heading-about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="wow bounceInDown" data-wow-delay="0.4s">
+                            <div class="section-heading">
+                                <h2>Exercices</h2>
+                                <span class="fa-stack fa-5x">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa-inbox fa-stack-1x"></i>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="td-jsf-td1">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 style="margin-bottom: 5px;">JSF - TD1</h4>
+                </div>
+                <div class="panel-body" style="">
+                    <p class="td-paragraph">Vous pouvez télécharger la feuille d'exercice du TD1 de JSF ici : <a
+                            href="http://www.shipstone.org/siad/m2/document/M2-JavaEE-td1.pdf" target="_blank">M2-JavaEE-td1.pdf</a>.
+                    </p>
+                </div>
+                <div class="panel-footer">
+                    <p style="margin-bottom: 0;">
+                        <a href="https://github.com/ptitbob/siad2015/tree/master/01-jsf-td1" target="_blank">Source du
+                              TD</a>&nbsp;(<a href="https://github.com/ptitbob/siad2015/tree/master/01-jsf-td1-soluce"
+                                            target="_blank">Corrigés</a>).
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="td-jsf-td2">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 style="margin-bottom: 5px;">JSF - TD2</h4>
+                </div>
+                <div class="panel-body" style="">
+                    <p class="td-paragraph">Il s'agit d'améliorer la gestion de personne en y mettant en place des
+                        convertions et validations.</p>
+
+                    <p style="text-align: left">
+                    <ul style="text-align: left">
+                        <li>Page liste
+                            <ul>
+                                <li>Date de naissance : afficher la date en clair (ex : 23 septembre 1998)
+                                    <ul>
+                                        <li>pour vous aider, recherchez java8 simpledateformat (via google)</li>
+                                    </ul>
+                                </li>
+                                <li>Via un convertisseur spécialisé, Le nom doit être en majuscule</li>
+                            </ul>
+                        </li>
+                        <li>Page édition
+                            <ul>
+                                <li>Champ nom
+                                    <ul>
+                                        <li>Le rendre obligatoire</li>
+                                        <li>La première lettre <span
+                                                style="font-weight: bold; text-decoration-style: underline">doit</span>
+                                            être en majuscule (regexp ?)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Champ date de naissance
+                                    <ul>
+                                        <li>Si il est rempli
+                                            <ul>
+                                                <li>La date de naissance <span
+                                                        style="font-weight: bold; text-decoration-style: underline">doit</span>
+                                                    être supérieur au 01/01/1950
+                                                </li>
+                                                <li>La personne <span
+                                                        style="font-weight: bold; text-decoration-style: underline">doit</span>
+                                                    être majeure (age légal français)
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="panel-footer">
+                    <p style="margin-bottom: 0;">
+                        <a href="https://github.com/ptitbob/siad2015/tree/master/02-jsf-td2" target="_blank">Source du
+                            TD</a>&nbsp;(<a href="https://github.com/ptitbob/siad2015/tree/master/02-jsf-td2-soluce"
+                                            target="_blank">Corrigés</a>).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="td-ejb-td1">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 style="margin-bottom: 5px;">EJB & JSF - TD1 - Vues, Controlleurs & services</h4>
+                </div>
+                <div class="panel-body" style="">
+                    <p class="td-paragraph">Ce TD s'articule en 2 parties, la première sera essentiellement de la
+                        consultation avec une navigation. La seconde sera une gestion de formulaire sur plusieurs pages
+                        (avec enregistrement des choix fait par l'utilisateur)</p>
+
+                    <p>Ce TD s'appuie sur le module <code>ejb-td1</code> (11-ejb-td1).</p>
+                    <p class="nopadding">Un fois le serveur lancé, votre page d'acceuil s'affiche à cette URL : <a href="http://localhost:8080/td/" target="_blank">http://localhost:8080/td/</a></p>
+                    <p class="nopadding">Chaque partie est indépendante, vous pouvez faire la partie 2 avant la partie 1 ou dans l'ordre...</p>
+
+                    <div style="text-align: left" class="nopadding">
+                        <p><h5 class="tdPart">Partie 1</h5></p>
+                        <ul style="text-align: left">
+                            <li>Région
+                                <ul>
+                                    <li>Créer une classe de service permettant d'exposer toutes les méthodes neccessaires</li>
+                                    <li>La bean JPA des regions : <code>fr.univ.tours.siad.util.data.bean.Region</code>(module <code>data</code>)
+                                        <ul>
+                                            <li>Vous trouverez les requêtes preparées</li>
+                                            <li>Pour voir comment executer une requête nommée (préparée), regardez les précedent TD au niveau des services appelés par les controlleurs ;)</li>
+                                        </ul>
+                                    </li>
+                                    <li>Créer une page affichant la liste des régions
+                                        <ul>
+                                            <li>Afficher la liste des région avec les colonne nom (non uppercasé), N° INSEE</li>
+                                            <li>un lien sur le N° INSEE permettra d'afficher la page de la région</li>
+                                            <li>Créer un lien depuis la page d'index vers cette page (cette page doit pouvoir être appelé de partout sur le site)</li>
+                                        </ul>
+                                    </li>
+                                    <li>Créer une page de détails de région
+                                        <ul>
+                                            <li>Cette page ne peut s'afficher que depuis la page de liste des régions</li>
+                                            <li>Cette page se divise en 2 parties
+                                                <ul>
+                                                    <li>Le détail
+                                                        <ul>
+                                                            <li>Afficher le nom de région en grand (libre choix à vous pour le moyen)</li>
+                                                            <li>Afficher la prefecture de région (nom, altitude (en anglais : elevation), n°INSEE)</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>La liste des départements
+                                                        <ul>
+                                                            <li>Nom du département</li>
+                                                            <li>N° INSEE</li>
+                                                            <li>Le N° INSEE doit pouvoir ouvrir le détail du département</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Département
+                                <ul>
+                                    <li>Créer une page détail</li>
+                                    <li>Créer la navigation depuis la page de détail des régions</li>
+                                    <li>Le bean du département : <code>fr.univ.tours.siad.util.data.bean.District</code></li>
+                                    <li>Cette page doit presenter 2 parties
+                                        <ul>
+                                            <li>Détail
+                                                <ul>
+                                                    <li>Afficher le nom du département, mais en moins grand que la région</li>
+                                                    <li>Afficher le nom de la prefecture et son altitude</li>
+                                                    <li>Afficher l'altitude moyenne <span style="text-decoration: underline">calculée</span> à partir des altitude des villes du départements</li>
+                                                </ul>
+                                            </li>
+                                            <li>La liste des villes
+                                                <ul>
+                                                    <li>Afficher la liste des ville</li>
+                                                    <li>Avec Nom, altitude, status, l'altitude et le libellé du statut</li>
+                                                    <li>Le bean des villes : <code>fr.univ.tours.siad.util.data.bean.City</code></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><span style="font-style: italic; font-weight: bold">Il est entendu que cela doit être un autre service, lié au département</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>Cette partie ne reclame pas de scope permanent ou semi permanent, prenez soin de ne pas
+                            saturer la mémoire de votre serveur</p>
+                        <p>Petit rappel : <span style="font-style: italic; font-weight: bold">Le code est <span style="text-decoration: underline">toujours</span> en anglais !</span></p>
+                    </div>
+                    <div style="text-align: left; margin-top: 2em;" class="nopadding">
+                        <p><h5 class="tdPart">Partie 2</h5></p>
+                        <p style="font-style: italic">Cette partie permettra d'enregistrer des personnes, pour vous faciliter la tache elle s'appuie sur le corrigé du TD2 JSF intégré au sources de ce TD</p>
+                        <p>Le client demande que l'on puisse ajouter une adresse lors de la création d'une personne, mais seulement lors de la création.</p>
+                        <ul style="text-align: left; margin-top: 1em;">
+                            <li>Modifier la page <code>personView</code>
+                                <ul>
+                                    <li>En mode consultation/modification
+                                        <ul>
+                                            <li>Si le personne n'a pas d'adresse, un message indiquant "<span style="font-style: italic">Fiche incomplete, adresse manquante</span>" s'affiche au dessous de la date de naissance</li>
+                                            <li>Si la personne presente une adresse, afficher l'adresse complete avec un champ (non modifiable) par ligne
+                                                <ul>
+                                                    <li>Champ 1 de l'adresse</li>
+                                                    <li>Champ 2 de l'adresse</li>
+                                                    <li>La ville</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>En mode création
+                                        <ul>
+                                            <li>Ajouter un champs de saisie de n° de département
+                                                <ul>
+                                                    <li>Attention, le controlleur devra recevoir le n° de département selon certains critères
+                                                        <ul>
+                                                            <li>Le champ est obligatoire</li>
+                                                            <li>Le champs doit être numérique</li>
+                                                            <li>l'utilisateur peut rentrer un nombre entre 1 et 999</li>
+                                                            <li>Si l'utilisateur entre un chiffre entre 1 et 9, la valeur transmise au controlleur doit être préfixé par zéro (les numéro INSEE des département font au moins 2 de long, prefixé par zéro pour les départements dont le numéro est inférieur à 10)</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>remplacer le bouton validation, par un bouton suivant qui permettra d'afficher la page suivante : selection d'une ville (navigation)</li>
+                                            <li><span style="font-style: italic">Prenez garde à ne pas fermer la conversation dans ce cas là</span>.</li>
+                                            <li>Créer la page de selection de la ville
+                                                <ul>
+                                                    <li>Cette page affichera un tableau avec la liste des ville lié au département</li>
+                                                    <li>La selection d'une ville ouvrira la page de saisie de l'adresse (par le champ de votre choix)
+                                                        <ul>
+                                                            <li>Lors de la selection de la ville, une adresse sera créée, lié à la personne (pensez à valoriser la ville)</li>
+                                                            <li>La page affichera les 2 champs de saisie de la rue</li>
+                                                            <li>Un bouton permettra de valider la personne au complet et renverra à la page de liste
+                                                                <ul>
+                                                                    <li><span style="font-style: italic; font-weight: bold">Il appelera la méthode d'update du controlleur Personne, cependant <span style="text-decoration: underline">vous ne devrez en aucun cas modifier celle-ci</span> tout en respectant les consignes ci dessous : </span>
+                                                                        <ul>
+                                                                            <li>La métode de sauvegarde de l'adresse <span style="font-style: italic; font-weight: bold">ne pourra pas être appelé <span style="text-decoration: underline">en dehors d'un contexte de transaction déjà inité</span></span>.</li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li>C'est à ce moment que la conversation devra être terminée - Vous n'avez rien à faire, c'est déjà codé dans le controlleur.</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <p style="margin-bottom: 0;">
+                        <a href="https://github.com/ptitbob/siad2015/tree/master/11-ejb-td1" target="_blank">Source du
+                            TD</a>&nbsp;(<a href="https://github.com/ptitbob/siad2015/tree/master/11-ejb-td1-soluce"
+                                            target="_blank">Corrigés</a>).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="td-jaxb-td">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 style="margin-bottom: 5px;">JAXB, une histoire de serialisation</h4>
+                </div>
+                <div class="panel-body">
+                    <div style="text-align: left" class="col-lg-12">
+                        <p class="td-paragraph nopadding">
+                            Pour ce TD, il s'agit de sérialiser l'ensemble des classes ci-dessous en utilisant les annotations JAXB à votre disposition. C'est l'organisation simple d'une association
+                        </p>
+                        <img src="img/jaxb-td1.jpg" class="col-lg-12">
+                        <p>
+                            Ouvrez le module <code>20-jaxb-td1</code>, vous trouverez toutes les instructions incluses dans la javadoc des classes <code>fr.univ.tours.siad.jaxb.td1</code> et <code>fr.univ.tours.siad.jaxb.td2</code>.
+                        </p>
+                        <p>
+                            Pour vérifier votre code, lancer chacune des classe de test (validation) et regarder le resultats des tests (si c'est <span style="color: green; font-weight: bold">vert</span> : c'est gagné ).&nbsp;
+                            <span style="font-style: italic; font-weight: bold">Si par contre, les tests échouent, regardez la console, vous y trouverez des informations importantes</span>.
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <p style="margin-bottom: 0;">
+                        <a href="https://github.com/ptitbob/siad2015/tree/master/20-jaxb-td1" target="_blank">Source du
+                            TD</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="wow shake" data-wow-delay="0.4s">
+                    <div class="page-scroll marginbot-30">
+                        <a href="#intro" id="totop" class="btn btn-circle">
+                            <i class="fa fa-angle-double-up animated"></i>
+                        </a>
+                    </div>
+                </div>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                        alt="Licence Creative Commons" style="border-width:0"
+                        src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/></a> François Robert</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Core JavaScript Files -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.scrollTo.js"></script>
+<script src="js/wow.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="js/custom.js"></script>
+
+</body>
+
+</html>
