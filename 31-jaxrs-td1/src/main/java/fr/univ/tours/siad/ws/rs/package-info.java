@@ -1,4 +1,4 @@
 /**
- * Created by francois on 04/11/15.
+ * Emplacement "normalisé" d'une API JAX-RS
  */
 package fr.univ.tours.siad.ws.rs;
