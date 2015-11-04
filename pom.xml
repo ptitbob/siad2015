@@ -22,6 +22,7 @@
         <module>31-jaxrs-td1</module>
         <module>90-util</module>
         <module>91-data</module>
+        <module>32-jaxrs-demo</module>
         <!--module>99-dataSpring</module-->
     </modules>
 
