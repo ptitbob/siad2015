@@ -31,6 +31,12 @@ public class RegionServices {
         return entityManager.createNamedQuery(Region.FIND_ALL, Region.class).getResultList();
     }
 
+    /**
+     * Renvoi la region en fonction de son numero INSEE
+     * @param regionInseeId numero INSEE
+     * @return region
+     * @throws NoRegionFoundException si la region n'a pas été trouvé
+     */
     public Region getRegionByInseeId(String regionInseeId) throws NoRegionFoundException {
         Region region;
         try {
@@ -41,8 +47,38 @@ public class RegionServices {
         return region;
     }
 
+    /**
+     * Renvoi la compte des départements
+     * @param regionInseeId numero INSEE de la region
+     * @return compte
+     */
     public Long getDistrictCountFor(String regionInseeId) {
         Long districtCount = entityManager.createNamedQuery(District.COUNT_FOR_REGION, Long.class).setParameter(Region.INSEEID, regionInseeId).getSingleResult();
         return districtCount;
+    }
+
+    /**
+     * Création d'une région
+     * @param name nom
+     * @param upperName nom normalisé
+     * @return region créé
+     */
+    public Region createRegion(String name, String upperName) {
+        Region region = new Region();
+        region.setName(name);
+        region.setUpperName(upperName);
+        entityManager.persist(region);
+        region.setInseeId(String.valueOf(500 + region.getId()));
+        entityManager.merge(region);
+        return region;
+    }
+
+    public void updateRegion(Region region) {
+        entityManager.merge(region);
+    }
+
+    public void removeRegionById(String inseeId) throws NoRegionFoundException {
+        Region region = getRegionByInseeId(inseeId);
+        entityManager.remove(region);
     }
 }
