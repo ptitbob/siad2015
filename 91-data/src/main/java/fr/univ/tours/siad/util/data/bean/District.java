@@ -18,6 +18,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
         , @NamedQuery(name = District.COUNT, query = "select count(d) from District d")
         , @NamedQuery(name = District.FIND_BY_INSEEID, query = "select d from District d where d.inseeId = :" + District.INSEEID)
         , @NamedQuery(name = District.FIND_BY_REGION, query = "select d from District d where d.region.inseeId = :" + Region.INSEEID)
+        , @NamedQuery(name = District.COUNT_FOR_REGION, query = "select count(d) from District d where d.region.inseeId = :" + Region.INSEEID)
 })
 public class District {
 
@@ -38,7 +39,15 @@ public class District {
      */
     public static final String FIND_BY_REGION = "District.FIND_BY_REGION";
 
+    /**
+     * Variable pour l'identifiant INSEE du département
+     */
     public static final String INSEEID = "districtInseeId";
+
+    /**
+     * Requete renvoyant le nombre de département pour une région
+     */
+    public static final String COUNT_FOR_REGION = "District.COUNT_FOR_REGION";
 
     /**
      * Identifiant (PK)
