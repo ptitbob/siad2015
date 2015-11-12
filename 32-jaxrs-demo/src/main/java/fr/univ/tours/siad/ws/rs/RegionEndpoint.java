@@ -55,7 +55,7 @@ public class RegionEndpoint {
      */
     @GET
     @Path("/{id:[A-Z0-9]{2}}") // utilisation d'une regex
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, RegionDtoCSV.SIAD_CSV})
     public RegionDto getRegionByInseeId(@PathParam("id") String regionInseeId) throws NoRegionFoundException {
         Region region = regionServices.getRegionByInseeId(regionInseeId);
         Long districtCount = regionServices.getDistrictCountFor(regionInseeId);
