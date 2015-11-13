@@ -4,6 +4,7 @@ import fr.univ.tours.siad.services.exception.NoRegionFoundException;
 import fr.univ.tours.siad.util.data.SiadDatabase;
 import fr.univ.tours.siad.util.data.bean.District;
 import fr.univ.tours.siad.util.data.bean.Region;
+import org.apache.logging.log4j.Logger;
 
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -25,6 +26,9 @@ public class RegionServices {
     @Inject
     @SiadDatabase
     private EntityManager entityManager;
+
+    @Inject
+    private Logger logger;
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public List<Region> getRegionList() {
@@ -68,9 +72,17 @@ public class RegionServices {
         region.setName(name);
         region.setUpperName(upperName);
         entityManager.persist(region);
-        region.setInseeId(String.valueOf(500 + region.getId()));
+        region.setInseeId(generateAlphaInseeId(region.getId()));
+        logger.debug(region);
         entityManager.merge(region);
         return region;
+    }
+
+    private String generateAlphaInseeId(Long id) {
+        int initial = id.intValue() - 110;
+        int modulo = (initial % 26) + 65;
+        int part = (initial / 26) + 65;
+        return "" + ((char) part) + ((char) modulo);
     }
 
     public void updateRegion(Region region) {

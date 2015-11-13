@@ -54,8 +54,8 @@ public class RegionEndpoint {
      * @throws NoRegionFoundException si la region n'a pas été trouvé.
      */
     @GET
-    @Path("/{id:[0-9]{2}[0-9]*}") // utilisation d'une regex
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Path("/{id:[A-Z0-9]{2}}") // utilisation d'une regex
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, RegionDtoCSV.SIAD_CSV})
     public RegionDto getRegionByInseeId(@PathParam("id") String regionInseeId) throws NoRegionFoundException {
         Region region = regionServices.getRegionByInseeId(regionInseeId);
         Long districtCount = regionServices.getDistrictCountFor(regionInseeId);
@@ -70,7 +70,7 @@ public class RegionEndpoint {
      */
     @POST
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
-    public Response createRegion(String name, String upperName) {
+    public Response createRegion(@FormParam("name") String name, @FormParam("upperName") String upperName) {
         Region region = regionServices.createRegion(name, upperName);
         // Creation de l'URL de la ressource, accessible via une requête GET
         URI regionCreatedUri = UriBuilder
@@ -92,7 +92,7 @@ public class RegionEndpoint {
      */
     @PUT
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    @Path("/{id:[0-9]{2}[0-9]*}") // utilisation d'une regex
+    @Path("/{id:[A-Z0-9]{2}}") // utilisation d'une regex
     public Response updateRegion(@PathParam("id") String inseeId, RegionDto regionDto) throws NoRegionFoundException, IllegalInseeIdPresentationException {
         if (!inseeId.equals(regionDto.getInseeId())) {
             // Vérification de la concordance entre N°INSEE de l'URL et celui des donnée updatée.
@@ -112,7 +112,7 @@ public class RegionEndpoint {
      * @return reponse Ok, car gestion idempotent...—
      */
     @DELETE
-    @Path("/{id:[0-9]{2}[0-9]*}") // utilisation d'une regex
+    @Path("/{id:[A-Z0-9]{2}}") // utilisation d'une regex
     public Response deleteRegion(@PathParam("id") String inseeId) {
         try {
             regionServices.removeRegionById(inseeId);
