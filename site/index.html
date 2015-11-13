@@ -57,6 +57,7 @@
                         <li><a href="#td-jsf-td2">JSF - TD2 - Validateur et convertisseur</a></li>
                         <li><a href="#td-ejb-td1">EJB & JSF - TD1 - Vues, Controlleurs & services</a></li>
                         <li><a href="#td-jaxb-td">JAXB, une histoire de serialisation</a></li>
+                        <li><a href="#td-jaxrs-td-view">JAX-RS Il doit en RESTer qu'une</a></li>
                         <!--
                       <li><a href="#">EJB & JSF</a></li>
                       <li><a href="#">Binding XML : JAXB</a></li>
@@ -673,6 +674,107 @@
                 </div>
             </div>
         </div>
+
+        <div class="row" id="td-jaxrs-td">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-1" id="td-jaxrs-td-view">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 style="margin-bottom: 5px;">JAX-RS Il doit en RESTer qu'une</h4>
+                    <h6>(API... :) )</h6>
+                </div>
+                <div class="panel-body">
+                    <div style="text-align: left" class="col-lg-12">
+                        <p class="td-paragraph nopadding">
+                            Au cours de ce TD, vous aurez a mettre en place une API depuis notre base de donnée vers l'application d'un client qui l'interrogera via des appels REST. Il a des demandes précise en ce qui concerne l'acces aux ressources et au différents code attendus.
+                        </p>
+                        <p>
+                            Voici les beans que le client souhaite consulter, cependant, nous ne souhaitons pas partager les nos bean (entités) avec lui et il serait préférable que nous puissions lui envoyer un jar indépendant contenant les structure java, faites le necessaire pour que cela soit possible.
+                        </p>
+                        <img src="img/jaxrs.jpg" class="col-lg-12">
+                        <p>
+                            Ouvrez le module <code>31-jaxrs-td1</code>, vous trouverez la structure de base du projet, ainsi que un service developpé par un prestataire.
+                        </p>
+                        <p>
+                            Le client nous a envoyé ses spécifications.
+                        </p>
+                        <p style="font-style: italic; background-color: beige; border: dotted burlywood 1px;">
+                            Pour plus de facilité de lecture, nous noterons [host] l'url de base d'acces au serveur, dans le cas de ce projet sur vos poste, cela sera <code>http://localhost:8080/contact</code>
+                        </p>
+                        <h5>Concernant les formats</h5>
+                        <p>
+                            Le format JSON est le format par défaut, cependant, il faut que celle-ci soit accessible au format XML.
+                        </p>
+                        <h5>API d'exposition des donnée géographique</h5>
+                        <p>
+                            Le client souhaite acceder en lecture seule à notre base de donnée concernant les département et les villes, pour cela nos groupes d'analyste ont proposé plusieurs URL.
+                        </p>
+                        <p>
+                            Tout d'abord l'URL de base de l'API REST que nous exposons doit être <code>[host]/api</code>.
+                        </p>
+                        <h6>Départements</h6>
+                        <p>
+                            Le client doit pouvoir recuperer la liste des départements (numero INSEE, nom) via un appel à cet type d'URL : <code>[host]/api/district</code>
+                        </p>
+                        <p>
+                            Le client doit pouvoir acceder un département de maniere individuelle (numero INSEE, nom, Nom du chef lieu) via son numero INSSE directement dans l'URL : <code>[host]/api/district/<span style="background-color: greenyellow">[INSEE]</span></code>
+                        </p>
+                        <h6>Villes</h6>
+                        <p>
+                            De la même manière que pour les départements, notre client souhaite accéder à la liste des villes (nom, status, numero insee), mais souhaite également restreindre de fait la liste à un département. Pour cela, nous mettrons à disposition cette URL : <code>[host]/city/<span style="background-color: greenyellow">[INSEE Departement]</span>/</code> et <span style="text-decoration: underline">nous ne mettrons pas d’acces complet à la liste des villes</span>.
+                        </p>
+                        <p>
+                            De même, le client souhaite accéder au détails de chaque ville (nom, status, altitude, liste des code postaux), pour cela il devra utiliser cet URL : <code>[host]/city/<span style="background-color: greenyellow">[INSEE Departement]</span>/<span style="background-color: pink">[INSEE Ville]</span>/</code>
+                        </p>
+                        <h6>Les codes retour pour l'API géographique</h6>
+                        <ol>
+                            <li>Ils doivent suivr les spécification HTTP</li>
+                            <li><code>200</code> : Succes</li>
+                            <li><code>404</code> : ressource géographique non trouvée</li>
+                        </ol>
+                        <h5 style="padding-top: 2em;">API d'exposition des personnes</h5>
+                        <p>
+                            Le client souhaite une API CRUD pour la gestion des personnes, avec comme URL de base <code>[host]/api/person</code>
+                        </p>
+                        <p>
+                            Cette API CRUD-List presentera ces URLs
+                        <ul>
+                            <li>Affichage de la liste des personnes : <code>[host]/api/person</code> - id, prenom, nom</li>
+                            <li>Affichage du détail d'une personne : <code>[host]/api/person/<span style="background-color: greenyellow">[Id de la personne]</span>/</code></li>
+                            <li>Création d'une personne : <code>[host]/api/person</code>, avec les champs suivant :
+                                <ul>
+                                    <li>Nom</li>
+                                    <li>Prenom</li>
+                                    <li>ligne 1 de l'adresse</li>
+                                    <li>code postal</li>
+                                </ul>
+                                Et le retour devra renvoyer l'URL d'acces à la personne. Si le code postal n'existe pas, le service devra renvoyer une erreur <code>450</code>.
+                            </li>
+                            <li>Modification d'une personne par l'URL <code>[host]/api/person/<span style="background-color: greenyellow">[Id de la personne]</span>/</code>, avec modification seulement des champs suivant :
+                                <ul>
+                                    <li>Nom</li>
+                                    <li>Prenom</li>
+                                </ul>
+                                une non cohérence entre l'id fournie dans l'URL et l'id contenu dans les données devra renvoyer une erreur <code>480</code>. De plus, cette méthode acceptera des données aux format <code>JSON</code> <span style="text-decoration: underline; font-weight: bold">ou</span> <code>XML</code>.
+                            </li>
+                        <li>Suppression d'une personne par l'URL <code>[host]/api/person/<span style="background-color: greenyellow">[Id de la personne]</span>/</code>
+                        </li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <p style="margin-bottom: 0;">
+                        <a href="https://github.com/ptitbob/siad2015/tree/master/31-jaxrs-td1" target="_blank">Source du
+                            TD</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </section>
