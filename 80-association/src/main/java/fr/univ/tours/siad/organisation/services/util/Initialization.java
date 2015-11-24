@@ -25,9 +25,11 @@ public class Initialization {
     @PostConstruct
     public void initializeApplication() {
         logger.info("Initilisation de l'application");
+        /*
         Activity activity = new Activity();
         activity.setName("test");
         entityManager.persist(activity);
+        */
     }
 
 }
