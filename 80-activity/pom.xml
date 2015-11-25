@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>association</artifactId>
+    <artifactId>activity</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
@@ -35,6 +35,6 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>studentOrganization</finalName>
+        <finalName>activity</finalName>
     </build>
 </project>

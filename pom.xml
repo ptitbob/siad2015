@@ -20,7 +20,7 @@
         <module>20-jaxb-td1</module>
         <module>20-jaxb-td1-soluce</module>
         <module>30-jaxrs-intro</module>
-        <module>80-association</module>
+        <module>80-activity</module>
         <module>90-util</module>
         <module>91-data</module>
         <!--module>99-dataSpring</module-->
