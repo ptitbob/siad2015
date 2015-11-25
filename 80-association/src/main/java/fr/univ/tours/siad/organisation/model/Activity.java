@@ -13,6 +13,7 @@ import java.util.Objects;
 @SequenceGenerator(name = "activity_sequence", sequenceName = "activity_sequence", allocationSize = 2)
 @NamedQueries({
         @NamedQuery(name = Activity.FIND_ALL, query = "select a from Activity a")
+        , @NamedQuery(name = Activity.FIND_BY_CITY, query = "select a from Activity a where a.location.address.city.inseeId = :" + City.INSEEID)
 })
 public class Activity implements Serializable {
 
@@ -20,9 +21,8 @@ public class Activity implements Serializable {
      * Requete recupérant toutes les activités
      */
     public static final String FIND_ALL = "Activity.FIND_ALL";
-    private static final String ORGANIZER = "ORGANIZER";
     public static final String ACTIVITY_ID = "ACTIVITY_ID";
-    private static final String ACTIVITY_CATEGORY = "ACTIVITY_CATEGORY";
+    public static final String FIND_BY_CITY = "Activity.FIND_BY_CITY";
 
     /**
      * Identifiant de l'activité (PK)

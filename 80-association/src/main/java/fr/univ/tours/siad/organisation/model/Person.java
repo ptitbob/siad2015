@@ -15,11 +15,13 @@ import java.util.Objects;
 @SequenceGenerator(name = "person_sequence", sequenceName = "person_sequence", allocationSize = 2)
 @NamedQueries({
         @NamedQuery(name = Person.FIND_ALL, query = "select p from Person p")
+        , @NamedQuery(name = Person.FIND_BY_CITY, query = "select p from Person p where p.address.city.inseeId = :" + City.INSEEID)
 })
 public class Person {
 
     public static final String PERSON_ID = "PERSON_ID";
     public static final String FIND_ALL = "Person.FIND_ALL";
+    public static final String FIND_BY_CITY = "Person.FIND_BY_CITY";
 
     @Id
     @GeneratedValue(generator = "person_sequence")
@@ -51,8 +53,17 @@ public class Person {
     @JoinColumn(name = "address", referencedColumnName = Address.ADDRESS_ID)
     private Address address;
 
+    /**
+     * Liste des adhésions
+     */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person")
     private List<Membership> membershipList;
+
+    /**
+     * Liste des activités organisé
+     */
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organizer")
+    private List<Activity> activityList;
 
     /**
      * Constructeur

@@ -11,9 +11,13 @@ import java.util.Objects;
  */
 @Entity
 @SequenceGenerator(name = "category_sequence", sequenceName = "category_sequence", allocationSize = 2)
+@NamedQueries({
+        @NamedQuery(name = Category.FIND_ALL, query = "select c from Category c")
+})
 public class Category {
 
     public static final String CATEGORY_ID = "CATEGORY_ID";
+    public static final String FIND_ALL = "Category.FIND_ALL";
 
     @Id
     @GeneratedValue(generator = "category_sequence")

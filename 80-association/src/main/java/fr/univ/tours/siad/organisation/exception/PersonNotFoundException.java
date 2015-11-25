@@ -5,5 +5,9 @@ package fr.univ.tours.siad.organisation.exception;
  *
  * @author francois
  */
-public class PersonNotFoundException {
+public class PersonNotFoundException extends Exception {
+
+    public PersonNotFoundException(String message) {
+        super(message);
+    }
 }

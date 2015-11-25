@@ -11,10 +11,17 @@ import java.util.Objects;
  */
 @Entity
 @SequenceGenerator(name = "membership_sequence", sequenceName = "membership_sequence")
+@NamedQueries({
+        @NamedQuery(name = Membership.FIND_BY_PERSON, query = "select ms from Membership ms where ms.person.id = :" + Person.PERSON_ID)
+        , @NamedQuery(name = Membership.FIND_BY_ACTIVITY, query = "select ms from Membership ms where ms.activity.id = :" + Activity.ACTIVITY_ID)
+        , @NamedQuery(name = Membership.FIND_BY_PERSON_ACTIVITY, query = "select ms from Membership ms where ms.person.id = :" + Person.PERSON_ID + " and ms.activity = :" + Activity.ACTIVITY_ID)
+})
 public class Membership {
 
-    public static final String ACTIVITY = "ACTIVITY";
-    public static final String PERSON_ID = "PERSON";
+    public static final String FIND_BY_PERSON = "Membership.FIND_BY_PERSON";
+    public static final String FIND_BY_ACTIVITY = "Membership.FIND_BY_ACTIVITY";
+    public static final String FIND_BY_PERSON_ACTIVITY = "Membership.FIND_BY_PERSON_ACTIVITY";
+
     @Id
     @GeneratedValue(generator = "membership_sequence")
     private Long id;
