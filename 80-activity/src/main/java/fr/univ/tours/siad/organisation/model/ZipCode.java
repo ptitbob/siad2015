@@ -10,9 +10,16 @@ import static javax.persistence.GenerationType.SEQUENCE;
  */
 @Entity
 @SequenceGenerator(name = "zipcode_sequence", sequenceName = "zipcode_sequence", allocationSize = 1)
+@NamedQueries({
+        @NamedQuery(name = ZipCode.FIND_ALL, query = "select zc from ZipCode zc")
+        , @NamedQuery(name = ZipCode.FIND_BY_ZIPCODE, query = "select zc from ZipCode zc where zc.zipCode = :" + ZipCode.ZIPCODE)
+})
 public class ZipCode {
 
     public static final String ZIPCODE_ID = "ID";
+    public static final String FIND_ALL = "ZipCode.FIND_ALL";
+    public static final String FIND_BY_ZIPCODE = "ZipCode.FIND_BY_ZIPCODE";
+    public static final String ZIPCODE = "zipcode";
 
     /**
      * Identifiant (PK)
